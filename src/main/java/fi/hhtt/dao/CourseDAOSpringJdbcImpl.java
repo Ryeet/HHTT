@@ -1,4 +1,4 @@
-package dao;
+package fi.hhtt.dao;
 
 import java.util.List;
 
@@ -8,10 +8,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import bean.Course;
+import fi.hhtt.bean.Course;
 
 @Repository
-public class CourseDAOIpml implements CourseDAO{
+public class CourseDAOSpringJdbcImpl implements CourseDAO{
 	
 	@Inject
 	private JdbcTemplate jdbcTemplate;

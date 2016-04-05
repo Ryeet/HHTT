@@ -1,4 +1,4 @@
-package bean;
+package fi.hhtt.bean;
 
 public class Course {
 	

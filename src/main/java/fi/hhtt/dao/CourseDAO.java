@@ -1,8 +1,8 @@
-package dao;
+package fi.hhtt.dao;
 
 import java.util.List;
 
-import bean.Course;
+import fi.hhtt.bean.Course;
 
 public interface CourseDAO {
 	

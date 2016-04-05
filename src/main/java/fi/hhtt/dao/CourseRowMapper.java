@@ -1,11 +1,11 @@
-package dao;
+package fi.hhtt.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import bean.Course;
+import fi.hhtt.bean.Course;
 
 public class CourseRowMapper implements RowMapper<Course>{
 	public Course mapRow(ResultSet rs, int rowNum) throws SQLException{
