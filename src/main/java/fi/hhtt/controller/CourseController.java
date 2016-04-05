@@ -25,7 +25,6 @@ public class CourseController {
 	
 	@RequestMapping (value="list", method=RequestMethod.GET)
 	public String getList(Model model){
-		System.out.println("tätä kutsuttiin");
 		List<Course> courses = dao.listCourses();
 		model.addAttribute("list", courses);
 		return "hhtt";

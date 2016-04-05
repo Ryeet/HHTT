@@ -4,10 +4,11 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		
 		<title>HHTT</title>
 	</head>
 	<body>
-		<table>
+		<table class="table table-bordered">
 			<tr>
 				<th>code</th>
 				<th>course</th>
