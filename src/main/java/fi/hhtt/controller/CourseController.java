@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.json.JSONArray;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,5 +31,10 @@ public class CourseController {
 		return "hhtt";
 	}
 	
-	
+	@RequestMapping (value="hihhei", method=RequestMethod.GET)
+	public String getJson(Model model){
+		JSONArray jsonArray = dao.listCoursesToJsonFormat();
+		model.addAttribute("jsonArray", jsonArray);
+		return "hihhei";
+	}
 }
