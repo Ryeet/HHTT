@@ -30,7 +30,7 @@ var kurssiLista = "[{\"Tunnus\":\"BUS2TN005-37\",\"Nimi\":\"Yrityksen taloudelli
 var kurssiObj = JSON.parse(kurssiLista);
 
 $(document).ready(function () {
-
+	console.log(kurssiObj);
     $(".kurs").click(function () {
         var booli = $(this).attr('data-click');
         if (booli === "false") {

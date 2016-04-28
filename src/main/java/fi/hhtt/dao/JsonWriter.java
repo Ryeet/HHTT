@@ -7,8 +7,8 @@ import java.util.List;
 public class JsonWriter{
 	public JSONArray listToJson(List<Course> courses){
 		JSONArray jsonArray = new JSONArray();
-		JSONObject obj = new JSONObject();
 		for(Course course : courses){
+			JSONObject obj = new JSONObject();
 		//	if(course.getProgramme().matches("TN4PA")){
 			obj.put("Alkaa", course.getBegins());
 			obj.put("Toimipiste", course.getCampus());
@@ -28,7 +28,7 @@ public class JsonWriter{
 			obj.put("Opettaja", course.getTeacher());
 			obj.put("modified", course.isModified());
 			obj.put("evening", course.isEvening());
-			System.out.println(obj.toString());
+			//System.out.println(obj.toString());
 			jsonArray.put(obj);
 	//	}
 		}

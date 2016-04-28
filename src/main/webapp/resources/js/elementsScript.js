@@ -31,7 +31,6 @@ var kurssiObj = JSON.parse(kurssiLista);
 
 function lisaaLapsoset(){
 var x = ["Mon", "Tue", "Wed", "Thu", "Fri"];
-
 for(var i = 0; i < x.length; i++)	{
 	var hh = 8;
 	var mm = 0;
