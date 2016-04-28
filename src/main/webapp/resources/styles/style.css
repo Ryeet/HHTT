@@ -1,0 +1,156 @@
+@charset "utf-8";
+
+.lukkarit {
+	width:	86%;
+	margin: auto;
+	padding: 0px;
+	position: relative;
+}
+
+.gotello{/*nämä on position relative ja float left*/
+	position: relative;
+	float:left;
+	width: 50%;
+	height: 500px;
+
+
+}
+
+
+.qurssit {
+	border-collapse: collapse;
+	
+}
+
+
+#scroll {
+	overflow-y: scroll;
+	width: 80%;
+	margin: auto;
+	position: relative;
+	height: 350px;
+
+}
+
+.otsikko {
+	float:	left;
+	width:	100%;
+	border: solid black 1px;
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	
+}
+
+.kurs{
+	
+}
+
+.qurssit tr td{
+	border: 0px;
+} 
+
+.qurssit tr{
+	border-top: solid black 1px;
+	height: 34px;
+}
+
+.paivat {
+	float:	left;
+	width:	100%;
+	height: 20px;
+	margin: 0px;
+	padding: 0px;
+	border: solid black 1px;
+
+
+}
+
+.kellonaika {
+	float:	left;
+
+	border: solid black 1px;
+
+	
+}
+
+.tunnit { /*kellon aikojen laatikko */
+	float:	left;
+	height: 364px;
+	width: 16.65%;
+	border: solid black 1px;
+	box-sizing: border-box;
+
+}
+
+.tunti {
+	float:	left;
+	height: 26px;
+	width: 100%;
+	border: solid black 1px;
+	text-align: center;
+	
+
+}
+
+.lukkaripalsta { /**/
+	float:	left;
+	height: 364px;
+	width: 16.65%;
+	border: solid black 1px;
+	box-sizing: border-box;
+
+	
+}
+
+.palsta15min{
+	width: 100%;
+	height: 6.75px;
+	
+
+
+}
+
+
+.paivat tr{
+	margin: 0px;
+	padding: 0px;
+}
+
+.paivat tr td
+{
+	margin:0px;
+	padding:0px;
+	width:16.65%;
+	border: solid 1px black;
+	text-align: center;
+}
+
+.lukkariLisays{ /* Ma */
+	border: 1px solid black;
+	position: relative;
+	width: 16.5%;
+	text-align: center;
+	background-blend-mode: darken;
+	z-index: 1;
+	border-radius: 5px;
+	position: absolute;
+	overflow:hidden;
+
+
+}
+
+.green
+{
+	background-color: lightGreen;
+}
+
+.yellow
+{
+	background-color: yellow;
+}
+
+.red
+{
+	background-color: red;
+}

@@ -31,10 +31,10 @@ public class CourseController {
 		return "hhtt";
 	}
 	
-	@RequestMapping (value="hihhei", method=RequestMethod.GET)
+	@RequestMapping (value="kurssilista", method=RequestMethod.GET)
 	public String getJson(Model model){
 		JSONArray jsonArray = dao.listCoursesToJsonFormat();
 		model.addAttribute("jsonArray", jsonArray);
-		return "hihhei";
+		return "kurssilista";
 	}
 }
