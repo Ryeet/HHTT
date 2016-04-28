@@ -1,3 +1,4 @@
 .settings
 .project
 target/m2e-wtp/web-resources/META-INF/maven/fi.hhtt/HHTT/pom.properties
+/target/
