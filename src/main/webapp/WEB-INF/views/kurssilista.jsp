@@ -494,9 +494,8 @@ $(document).ready(function () {
 
     });
 </script>
-<script type="js">console.log(<c:out value="${jsonArray}" escapeXml="false"/>);</script>
+<!--  <script type="js">console.log(<c:out value="${jsonArray}" escapeXml="false"/>);</script> -->
 <script src="${hoverJS}"></script>
-
 
 
 </body>
