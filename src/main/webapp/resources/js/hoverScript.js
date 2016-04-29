@@ -102,30 +102,41 @@ $(".kurs").mouseleave(function(){
 
 // Näyttää kurssin koodin ja nimen hoverissa
 $(".palsta15min").mouseenter(function () {
+	var hoverissa;
 //jos .palsta15min diveillä on lapsielementtejä
 	if(this.firstChild){
-	var blokki = this.firstChild.className;
+		var blokki = this.firstChild.className;
 	// katso onko aktiivinen, eli löytyykö class-nimen lopusta green
-	if((blokki.substr(blokki.length - 5)) === "green"){
-		// Löytyvän elementin class-nimi
-		var kurss1 = this.childNodes[0].textContent;
-		var texkt = kurss1;
-		//Otetaan class-nimestä ensimmäinen sana, joka on kurssin tunnus
-		var kurss1a = blokki.substring(0, blokki.indexOf(" ", 0));
-		var kurss1alng = kurss1a.length;
-		// Poistetaan divin sisältötekstistä kurssin tunnus, joka on jo kurss1a-string ja jätetään kurssin nimi
-        var kurss1b = texkt.substring(kurss1alng, texkt.length);
-        //Annetaan aktiiviselle elementille lisäattribuutteja, jotka näyttävät kuvauksen
-		this.firstChild.setAttribute("data-toggle", "popover");
-		this.firstChild.setAttribute("title", kurss1a);
-		this.firstChild.setAttribute("data-content", kurss1b);
-		this.firstChild.setAttribute("data-trigger", "hover");
-		//aktivoidaan bootstrapin kuvaus plugin
-		$('[data-toggle="popover"]').popover(); 
-	}}
-
+		if((blokki.substr(blokki.length - 5)) === "green"){
+			hoverissa = true;
+			// Löytyvän elementin sisäinen teksti
+			var kurss1 = this.childNodes[0].textContent;
+			var texkt = kurss1;
+			//Otetaan class-nimestä ensimmäinen sana, joka on kurssin tunnus
+			var kurss1a = blokki.substring(0, blokki.indexOf(" ", 0));
+			var kurss1alng = kurss1a.length;
+			// Poistetaan divin sisältötekstistä kurssin tunnus, joka on jo kurss1a-string ja jätetään kurssin nimi
+			var kurss1b = texkt.substring(kurss1alng, texkt.length);
+			//Annetaan aktiiviselle elementille lisäattribuutteja, jotka näyttävät kuvauksen
+			if(hoverissa){
+				this.firstChild.setAttribute("data-toggle", "popover");
+				this.firstChild.setAttribute("data-placement", "auto right");
+				this.firstChild.setAttribute("title", kurss1a);
+				this.firstChild.setAttribute("data-content", kurss1b);
+				this.firstChild.setAttribute("data-trigger", "hover");
+				//aktivoidaan bootstrapin kuvaus-plugin(popover)
+				$('[data-toggle="popover"]').popover(); 
+			}
+		}
+	}
 });
-
-
+//sulkee kuvauksen(popover)
+$(".palsta15min").mouseleave(function(){
+	$('.popover').each(function() {
+		if($( "div" ).hasClass("popover fade right in") || $( "div" ).hasClass("popover fade left in")){
+			$(this).popover('hide');
+		}
+    });
+});
 
 });
