@@ -3,6 +3,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<link href='https://fonts.googleapis.com/css?family=Peddana' rel='stylesheet' type='text/css'>
+
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
@@ -10,7 +13,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-<spring:url value="/resources/styles/style.css" var="styleCSS" />
+<spring:url value="/resources/styles/style1.css" var="styleCSS" />
 <spring:url value="/resources/js/elementsScript.js" var="elementJS" />
 
 <spring:url value="/resources/js/clickScript.js" var="clickJS" />
@@ -24,10 +27,9 @@
 
 
 <div class="lukkarit">
-<div class="gotello">
-
+<div class="gotello" id="gotello1">
 <div class="otsikko"> 
-<h1>LUKUJÄRJESTYS PERIODI 1.</h1>
+<h1>LUKUJÄRJESTYS PERIODI 1</h1>
 </div>
 <table class="paivat">
 <tr>
@@ -63,12 +65,11 @@
 <div id="Wed" class="lukkaripalsta"> </div>
 <div id="Thu" class="lukkaripalsta"> </div>
 <div id="Fri" class="lukkaripalsta"> </div>
-
 </div>
 </div>
-<div class= "gotello">
+<div class= "gotello" id="gotello2">
     <div class="otsikko">
-        <h1>LUKUJÄRJESTYS PERIODI 2.</h1>
+        <h1>LUKUJÄRJESTYS PERIODI 2</h1>
     </div>
     <table class="paivat">
         <tr>
@@ -97,19 +98,32 @@
         <div class="tunti">20.00</div>
     </div>
 
-    <div id="Mon2" class="lukkaripalsta"></div>
-    <div id="Tue2" class="lukkaripalsta"> </div>
-    <div id="Wed2" class="lukkaripalsta"> </div>
-    <div id="Thu2" class="lukkaripalsta"> </div>
-    <div id="Fri2" class="lukkaripalsta"> </div>
+    <div id="Mon2" class="lukkaripalsta2"></div>
+    <div id="Tue2" class="lukkaripalsta2"> </div>
+    <div id="Wed2" class="lukkaripalsta2"> </div>
+    <div id="Thu2" class="lukkaripalsta2"> </div>
+    <div id="Fri2" class="lukkaripalsta2"> </div>
 </div>
 </div>
 
+
+<table id="ylarivi" class="ylarivi"> 
+<thead><tr><td><b>Kurssi</b></td><td><b>Tunnus</b></td><td><b>Opettaja(t)</b></td><td><b>1. periodi</b></td><td><b>2. periodi</b></td></tr> </thead>
+</table>
 <div id="scroll">
 <table id="qurssit" class="qurssit"> 
-<tr><td><b>Kurssi</b></td><td><b>Tunnus</b></td><td><b>Opettaja(t)</b></td><td><b>1. periodi</b></td><td><b>2. periodi</b></td></tr>
+
 </table>
 </div>
+
+
+<script src="elementsScript.js"></script>
+<script>lisaaLapsoset();</script>
+<script>lisaaLapsoset2();</script>
+<script>luoKurssit()</script>
+<script src="clickScript.js"></script>
+<script src="hoverScript.js"></script>
+
 
 <c:out value="${jsonArray}" />
 
