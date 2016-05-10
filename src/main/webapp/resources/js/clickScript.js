@@ -30,7 +30,6 @@ var kurssiLista = "[{\"Tunnus\":\"BUS2TN005-37\",\"Nimi\":\"Yrityksen taloudelli
 var kurssiObj = JSON.parse(kurssiLista);
 
 $(document).ready(function () {
-	console.log(kurssiObj);
     $(".kurs").click(function () {
         var booli = $(this).attr('data-click');
         if (booli === "false") {
@@ -50,58 +49,44 @@ $(document).ready(function () {
 			var lisattavienElementtienSijoitukset=[];
 			//Lista. johon kasataan true/false arvot päällekkäisyyksiä varten
 			var tarkistusLista=[];
-			
             if (!aikaLuokka.match("undefined")){
                 for (var ii = 0; ii < aikaLuokkaOsissa.length; ii++) {
-                    //
 					//Määritetään paikka, eli elementti, jonka sisään kurssielementti sijoitetaan.
                     var sij = aikaLuokkaOsissa[ii].substr(0, 9);
                     var sijoitus = sij.replace("40", "45");
-
                     if (!aikaLuokkaOsissa[ii].match("undefined")) {
-
 						// Luodaan uusi div-elementti (kurssielementti)
                         var newDiv = document.createElement('div');
                         newDiv.className = $(this).attr('id');
                         newDiv.className += " lukkariLisays";
                         newDiv.style.textOverflow = "ellipsis";
-
-
+                        
                         var kurssinnimi = this.childNodes[0].textContent;
-                        newDiv.innerHTML = $(this).attr('id') + "<br>" + kurssinnimi;
 
+                        
+                        newDiv.innerHTML = $(this).attr('id') + "<br>" + kurssinnimi;
                         var korkeu = 28 * ((aikaLuokkaOsissa[ii].substr(10, 2) - aikaLuokkaOsissa[ii].substr(4, 2)) + ((aikaLuokkaOsissa[ii].substr(13, 2) - aikaLuokkaOsissa[ii].substr(7, 2)) / 60));
                         var korkeus = parseInt(korkeu);
-
                         newDiv.style.height = korkeus + "px";
-
                         var pv = aikaLuokkaOsissa[ii].substr(0, 3);
-
                         var merkattavienElementtienMaara = korkeus / 7;
-
                         var children = $('#' + pv).children();
-
                         for (var c = 0; c < children.length; c++) {
                             var lapsi = children[c].id;
-
                             if (lapsi.match(sijoitus)) {
-
                                 for (var cc = 0; cc < merkattavienElementtienMaara; cc++) {
                                     var lapsi2 = children[c + cc].id;
                                     var sijoitusBooli = document.getElementById(lapsi2).getAttribute("data-check");
                                     if (sijoitusBooli.match("true")) {
-
                                         onkoEstetta = "true";
-										
                                     }
                                 }
 								tarkistusLista.push(onkoEstetta);
-
 								onkoEstetta = "false";
                             }
                         }                          
-							lisattavatElementitLista.push(newDiv);
-							lisattavienElementtienSijoitukset.push(sijoitus);
+						lisattavatElementitLista.push(newDiv);
+						lisattavienElementtienSijoitukset.push(sijoitus);
                    }
                 }
         }
