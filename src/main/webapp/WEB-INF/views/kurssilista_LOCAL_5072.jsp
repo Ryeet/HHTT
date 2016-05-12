@@ -3,9 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <title>KURSSIVALINTA</title>
@@ -21,8 +19,11 @@
 <link href="${styleCSS}" rel="stylesheet" />
 <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
+
 </head>
+
 <body>
+
 
 <div class="lukkarit">
 <div class="gotello">
@@ -130,11 +131,6 @@
 </tbody>
 </table>
 </div>
-	<p>WinhaWilleen </p>
-	<p>Ota t‰st‰ valitsemasi kurssitunnukset talteen!</p>
-	<div id="ww">
-	
-	</div>
 
 <!-- <c:out value="${jsonArray}"/> -->
 
@@ -254,19 +250,11 @@ lisaaLapsoset();
 lisaaLapsoset2();
 luoKurssit();
 $(document).ready(function () {
-	$(".kurs").click(function () {
+
+    $(".kurs").click(function () {
         var booli = $(this).attr('data-click');
         if (booli === "false") {
-        	
-        	var courseName = this.childNodes[1].textContent;
-        	var courseCode = this.childNodes[1].textContent;
-        	var input = document.createElement("input");
-            input.type = "text";
-            input.setAttribute("data-course-name", courseCode);
-            input.value = courseCode;
-            
-            var container = document.querySelector("#ww");
-            container.appendChild(input);
+
 //Haetaan kurssin tuntien ajankohdat elementi luokasta Nro.2 (Esim. paluu on Mon,12:00,15:45,,Wed,12:00,15:45,,Fri,12:00,15:45)
             var aikaLuokka = $(this).attr('class').split(' ')[1];
             var aikaLuokka2 = $(this).attr('class').split(' ')[2];
@@ -300,7 +288,6 @@ $(document).ready(function () {
 
 
                         var kurssinnimi = this.childNodes[0].textContent;
-            			
                         newDiv.innerHTML = $(this).attr('id') + "<br>" + kurssinnimi;
 
                         var korkeu = 28 * ((aikaLuokkaOsissa[ii].substr(10, 2) - aikaLuokkaOsissa[ii].substr(4, 2)) + ((aikaLuokkaOsissa[ii].substr(13, 2) - aikaLuokkaOsissa[ii].substr(7, 2)) / 60));
@@ -394,106 +381,117 @@ $(document).ready(function () {
             
 							//Ruvetaan k‰sittelem‰‰n listoja
 							
-					var este = "false";
-				             for(var i = 0; i < tarkistusLista.length; i++){
-						if(tarkistusLista[i].match("true")){
-							este= "true";
-						}
-					}
-					
-					if (este.match("false")) {
-					
-					for(var i=0;i<lisattavatElementitLista.length;i++){
-						var lisattavaEl = lisattavatElementitLista[i];
-						var elSijoitus = lisattavienElementtienSijoitukset[i];
-						var pituus;
-							if(elSijoitus.length>9){				// Tarkistetaan, kumpaan periodiin elementti sijoitetaan
-								pituus = elSijoitus.substr(0,4);
-							}else{
-								pituus = elSijoitus.substr(0,3);
-				                              }
-						var korkia = lisattavaEl.style.height.replace("px", "");
-				
-				                          var merkattavienElementtienMaara = korkia/7;
-						var children = $('#' + pituus).children();
-					        for (var j = 0; j < children.length; j++) {
-								var a = children[j].id;
-				
-								if (a.match(elSijoitus)) {
-									for (var o = 0; o < merkattavienElementtienMaara; o++) {
-										var aa = children[j + o].id;
-				
-										document.getElementById(aa).setAttribute("data-check", "true");
-				
-				
-									}
+							var este = "false";
+			                for(var i = 0; i < tarkistusLista.length; i++){
+								if(tarkistusLista[i].match("true")){
+									este= "true";
 								}
 							}
-						$(this).attr("data-click", "true");
-						$(this).removeClass("yellow");
-						$(this).addClass("green");
-						lisattavaEl.className += " green";
-						document.getElementById(elSijoitus).appendChild(lisattavaEl);
-						
-					}
-				
-				}
-				else {
-				                          for(var i=0;i<lisattavatElementitLista.length;i++) {
-				                              var lisattavaEl = lisattavatElementitLista[i];
-				                              var elSijoitus = lisattavienElementtienSijoitukset[i];
-				                              var pituus;
-				                              if(elSijoitus.length>9){				// Tarkistetaan, kumpaan periodiin elementti sijoitetaan
-				                                  pituus = elSijoitus.substr(0,4);
-				                              }else{
-				                                  pituus = elSijoitus.substr(0,3);
-				                              }
-				                              var korkia = lisattavaEl.style.height.replace("px", "");
-				
-				                              var merkattavienElementtienMaara = korkia/7;
-				
-				                              lisattavaEl.className += " red";
-				                              lisattavaEl.style.zIndex = "10";
-				                              document.getElementById(elSijoitus).appendChild(lisattavaEl);
-				
-				                              $('.red').fadeOut(3000);
-				                              setTimeout(function () {
-				                                  $('.red').remove();
-				                              }, 4000);
-				                          }
-				                  }
+							
+							if (este.match("false")) {
+							
+							for(var i=0;i<lisattavatElementitLista.length;i++){
+								var lisattavaEl = lisattavatElementitLista[i];
+								var elSijoitus = lisattavienElementtienSijoitukset[i];
+								var pituus;
+									if(elSijoitus.length>9){				// Tarkistetaan, kumpaan periodiin elementti sijoitetaan
+										pituus = elSijoitus.substr(0,4);
+									}else{
+										pituus = elSijoitus.substr(0,3);
+                                    }
+								var korkia = lisattavaEl.style.height.replace("px", "");
+
+                                var merkattavienElementtienMaara = korkia/7;
+								var children = $('#' + pituus).children();
+							        for (var j = 0; j < children.length; j++) {
+										var a = children[j].id;
+
+										if (a.match(elSijoitus)) {
+											for (var o = 0; o < merkattavienElementtienMaara; o++) {
+												var aa = children[j + o].id;
+
+												document.getElementById(aa).setAttribute("data-check", "true");
+
+
+											}
+										}
+									}
+								$(this).attr("data-click", "true");
+								$(this).removeClass("yellow");
+								$(this).addClass("green");
+								lisattavaEl.className += " green";
+								document.getElementById(elSijoitus).appendChild(lisattavaEl);
+								
+							}
+
+						}
+						else {
+                                for(var i=0;i<lisattavatElementitLista.length;i++) {
+                                    var lisattavaEl = lisattavatElementitLista[i];
+                                    var elSijoitus = lisattavienElementtienSijoitukset[i];
+                                    var pituus;
+                                    if(elSijoitus.length>9){				// Tarkistetaan, kumpaan periodiin elementti sijoitetaan
+                                        pituus = elSijoitus.substr(0,4);
+                                    }else{
+                                        pituus = elSijoitus.substr(0,3);
+                                    }
+                                    var korkia = lisattavaEl.style.height.replace("px", "");
+
+                                    var merkattavienElementtienMaara = korkia/7;
+
+                                    lisattavaEl.className += " red";
+                                    lisattavaEl.style.zIndex = "10";
+                                    document.getElementById(elSijoitus).appendChild(lisattavaEl);
+
+                                    $('.red').fadeOut(3000);
+                                    setTimeout(function () {
+                                        $('.red').remove();
+                                    }, 4000);
+                                }
+                        }
 		}
 	if (booli === "true") {
-		var tamanElementinLuokka = $(this).attr('id');
-    	document.querySelector("input[data-course-name='"+tamanElementinLuokka+"']").remove();
-    	
-    	var poistettavatElementit = document.getElementsByClassName($(this).attr('id'));
-		for(var pe = 0;pe < poistettavatElementit.length ; pe++ ){
-		    var elementinKork = poistettavatElementit[pe].style.height;
-		    var elementinKorkeu = elementinKork.replace("px","");
-		    var elementinKorkeus = parseInt(elementinKorkeu);
-		    var merkkausElementtienMaara = elementinKorkeus / 7;
-		    var lapsoset = $('#' + poistettavatElementit[pe].parentElement.parentElement.id).children();
-		    for (var pee = 0; pee < lapsoset.length; pee++) {
-		        var b = lapsoset[pee].id;
-		        if (b.match(poistettavatElementit[pe].parentElement.id)) {
-		            for (var peee = 0; peee < merkkausElementtienMaara; peee++) {
-		                var bb = lapsoset[pee + peee].id;
-		                document.getElementById(bb).setAttribute("data-check", "false");
-		            }
-		        }
-		    }
-		}
-		$(this).toggleClass('green');
-		$(this).attr("data-click", "false");
-		$("."+$(this).attr('id')).remove();
-	}
-});
+            var poistettavatElementit = document.getElementsByClassName($(this).attr('id'));
+            for(var pe = 0;pe < poistettavatElementit.length ; pe++ ){
+
+                var elementinKork = poistettavatElementit[pe].style.height;
+                var elementinKorkeu = elementinKork.replace("px","");
+                var elementinKorkeus = parseInt(elementinKorkeu);
+
+                var merkkausElementtienMaara = elementinKorkeus / 7;
+
+                var lapsoset = $('#' + poistettavatElementit[pe].parentElement.parentElement.id).children();
+
+
+                for (var pee = 0; pee < lapsoset.length; pee++) {
+                    var b = lapsoset[pee].id;
+
+                    if (b.match(poistettavatElementit[pe].parentElement.id)) {
+
+                        for (var peee = 0; peee < merkkausElementtienMaara; peee++) {
+                            var bb = lapsoset[pee + peee].id;
+
+                            document.getElementById(bb).setAttribute("data-check", "false");
+
+                        }
+                    }
+                }
+
+
+            }
+            $(this).toggleClass('green');
+            $(this).attr("data-click", "false");
+            $("."+$(this).attr('id')).remove();
+        }
+
+
+
+    });
 
     $(document).on('click', '.lukkariLisays', function(){
-    	var tamanElementinLuokka = $(this).attr('class').split(' ')[0];
-    	document.querySelector("input[data-course-name='"+tamanElementinLuokka+"']").remove();
-    	var poistettavatElementit = document.getElementsByClassName(tamanElementinLuokka);
+
+        var tamanElementinLuokka = $(this).attr('class').split(' ')[0]
+        var poistettavatElementit = document.getElementsByClassName(tamanElementinLuokka);
         for(var pe = 0;pe < poistettavatElementit.length ; pe++ ){
 
             var elementinKork = poistettavatElementit[pe].style.height;
@@ -530,6 +528,10 @@ $(document).ready(function () {
     });
    
 </script>
-	<script src="${hoverJS}"></script>
+<!--  <script type="js">console.log(<c:out value="${jsonArray}" escapeXml="false"/>);</script> -->
+<script src="${hoverJS}"></script>
+
+
 </body>
+
 </html>
