@@ -147,8 +147,13 @@ $(".palsta15min").mouseleave(function(){
 	$(this).prevAll().css("background-color", "black");
 		$(this).nextAll().css("background-color", "black");
 		$(this).siblings(":last").css("background-color", "blue");
-		var vika = $(this).last.id;
-		console.log("3. " + vika);
+		var vika = $(this).nextAll();
+		for(var c=0;c<vika.length;c++){
+			if(vika[c].hasAttribute("data-check","false")) {
+			   console.log(vika[c].id);
+			   }
+		}
+		//console.log("3. " + vika);
 		$(this).siblings(":first").css("background-color", "blue");
 		var pa;
 		var sa = (function() {	

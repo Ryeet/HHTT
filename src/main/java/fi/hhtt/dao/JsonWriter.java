@@ -20,8 +20,8 @@ public class JsonWriter{
 			obj.put("Osaamisryhma", course.getFieldofstudy());
 			obj.put("Ryhma", course.getGroup());
 			obj.put("Kieli", course.getLanguage());
-			obj.put("1. periodi", course.getPeriod1());
-			obj.put("2. periodi", course.getPeriod2());
+			obj.put("1. periodi", course.getPeriod1().trim());
+			obj.put("2. periodi", course.getPeriod2().trim());
 			obj.put("Ohjelma", course.getProgramme());
 			obj.put("Huone", course.getRoom());
 			obj.put("studymethod", course.getStudymethod());
