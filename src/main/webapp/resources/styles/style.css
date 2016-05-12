@@ -140,6 +140,10 @@
 
 }
 
+input[data-course-name]{
+	display: block;
+}
+
 .green
 {
 	background-color: lightGreen;
