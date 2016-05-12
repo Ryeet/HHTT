@@ -139,4 +139,39 @@ $(".palsta15min").mouseleave(function(){
     });
 });
 
+	$(".palsta15min").on('click',function(){
+	if ( $( this ).parent()) {
+		console.log("1. "+$( this ).parent().get( 0 ).id); 
+		 if($( this ).attr("data-check") == "false" ) {
+		console.log("2. "+this.id)
+	$(this).prevAll().css("background-color", "black");
+		$(this).nextAll().css("background-color", "black");
+		$(this).siblings(":last").css("background-color", "blue");
+		var vika = $(this).last.id;
+		console.log("3. " + vika);
+		$(this).siblings(":first").css("background-color", "blue");
+		var pa;
+		var sa = (function() {	
+			 var node = this;
+		    var prop = document.body.previousElementSibling ? 'previousElementSibling' : 'previousSibling';
+
+		    getElementIndex = function(node) {
+		        var i = 1;
+		        while (node = node[prop] ) {//node[prop].attr("data-check") == "false"
+		        	return console.log("4" + [prop][i]);
+		        	if([prop][i].getAttribute("data-check") =="true"){
+		        		break;
+		        	}
+		        	++i }
+		        return i;
+		    }
+		   
+	return getElementIndex(node);
+	});
+		
+		var na = sa($(this));
+		    console.log("5. " +na);
+	}
+	}
+});
 });
