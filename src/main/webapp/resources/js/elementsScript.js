@@ -100,17 +100,17 @@ function luoKurssit() {
 
 //Käydän läpi aikaisemmin luotua jsonia yksi rivi kerrallaan
     for (var i = 0; i < kurssiObj.length; i++) {
-        aika = kurssiObj[i]["1. periodi"].split(/[ -]+/);
-		
-		if(aika[0].length<1){
-			aika = "undefined";
-		}
-        aika2 = kurssiObj[i]["2. periodi"].split(/[ -]+/);
+    		aika = kurssiObj[i]["1. periodi"].split(/[ -]+/);
+	
+	if(aika[0].length<1){
+		aika = "undefined";
+	}
+    aika2 = kurssiObj[i]["2. periodi"].split(/[ -]+/);
 
 		if(aika2[0].length<1){
 			aika2 = "undefined";
 		}
-		
+		//if(kurssiObj[i].Ryhma === "TN4PB" || kurssiObj[i].Ryhma == "TN4PA"){
         // Luodaan uusi table/taulun rivi elementti
         var newTr = document.createElement('tr');
 		newTr.id = kurssiObj[i].Tunnus;
@@ -119,10 +119,22 @@ function luoKurssit() {
         // Etsitän lisätty table ja lisätään sille itse luotu attribuutti "data-click" (kertoo onko painiketta painettu, käytetän värien muuttamiseen)
         newTr.setAttribute("data-click", false);
         // Lisätän teksti painikkeen sisälle
-        newTr.innerHTML = "<td class='nimi'>" + kurssiObj[i].Nimi + "</td><td class='tunnus'>" + kurssiObj[i].Tunnus + "</td><td class='opettaja'>" + kurssiObj[i].Opettaja + "</td><td class='per1'>" + kurssiObj[i]["1. periodi"] + "</td><td class='per2'>" + kurssiObj[i]["2. periodi"] + "</td>"  ;
+        newTr.innerHTML = "<td class='nimi'>" + kurssiObj[i].Nimi + 
+        "<td class='suoritustapa'>" + kurssiObj[i].Suoritustapa + 
+        "</td><td class='op'>" + kurssiObj[i].Op + 
+        "</td><td class='ohjelma'>" + kurssiObj[i].Ohjelma + 
+        "</td><td class='osaamisryhma'>" + kurssiObj[i].Osaamisryhma + 
+        "</td><td class='toimipiste'>" + kurssiObj[i].Toimipiste + 
+        "</td><td class='tunnus'>" + kurssiObj[i].Tunnus + 
+        "</td><td class='opettaja'>" + kurssiObj[i].Opettaja +
+        "</td><td class='huone'>" + kurssiObj[i].Huone +
+        "</td><td class='per1'>" + kurssiObj[i]["1. periodi"] + 
+        "</td><td class='per2'>" + kurssiObj[i]["2. periodi"] + "</td>" + 
+        "<td class='ryhma'>" + kurssiObj[i].Ryhma +"</td>";
         // Lisätän table-elementti html:n body-osioon
         document.getElementById("qurssit").appendChild(newTr);
         // Jaetaan 1. periodin kentässä oleva teksti osiin välilyäntien ja viivojen kohdalta
     }
+ //  }
 }
 

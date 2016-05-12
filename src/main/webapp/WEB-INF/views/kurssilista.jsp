@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <title>KURSSIVALINTA</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
@@ -107,9 +107,10 @@
 </div>
 <div id="scroll" data-role="main" class="ui-content">
 <form>
-	<input id="filterTable-input" data-type="search" placeholder="Hae henkilö mitä haluat....">
+	<input id="filterTable-input" data-type="search" placeholder="Hae mitä haluat...">
 </form>
-<table data-role="table" data-mode="columntoggle" class="qurssit ui-responsive ui-shadow" id="myTable" data-filter="true" data-input="#filterTable-input" data-column-btn-text="Valitse mitä talulusta näytän">
+
+<table data-role="table" data-mode="columntoggle" class="qurssit ui-responsive ui-shadow table-stroke" id="myTable" data-filter="true" data-input="#filterTable-input" data-column-btn-text="Valitse mitä talulusta näytän">
 <thead>
 <tr>
 	<th><b>Kurssi</b></th>
@@ -129,6 +130,7 @@
 <tbody id='qurssit'>
 </tbody>
 </table>
+
 </div>
 	<p>WinhaWilleen </p>
 	<p>Ota tästä valitsemasi kurssitunnukset talteen!</p>
@@ -259,7 +261,7 @@ $(document).ready(function () {
         if (booli === "false") {
         	
         	var courseName = this.childNodes[1].textContent;
-        	var courseCode = this.childNodes[1].textContent;
+        	var courseCode = this.childNodes[6].textContent;
         	var input = document.createElement("input");
             input.type = "text";
             input.setAttribute("data-course-name", courseCode);
@@ -465,6 +467,7 @@ $(document).ready(function () {
 		}
 	if (booli === "true") {
 		var tamanElementinLuokka = $(this).attr('id');
+		console.log(tamanElementinLuokka);
     	document.querySelector("input[data-course-name='"+tamanElementinLuokka+"']").remove();
     	
     	var poistettavatElementit = document.getElementsByClassName($(this).attr('id'));
