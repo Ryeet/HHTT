@@ -158,3 +158,11 @@ input[data-course-name]{
 {
 	background-color: red;
 }
+#myTable tr{
+	width: 100% !important;
+}
+#searchfield{
+	width: 50%;
+	height: 10px;
+}
+

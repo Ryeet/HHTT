@@ -60,6 +60,7 @@ $(document).ready(function () {
                         newDiv.className = $(this).attr('id');
                         newDiv.className += " lukkariLisays";
                         newDiv.style.textOverflow = "ellipsis";
+                        newDiv.style.overflow = "hidden";
                         
                         var kurssinnimi = this.childNodes[0].textContent;
 
@@ -105,6 +106,8 @@ $(document).ready(function () {
 
                         newDiv2.className = $(this).attr('id');
                         newDiv2.className += " lukkariLisays";
+                        newDiv2.style.textOverflow = "ellipsis";
+                        newDiv2.style.overflow = "hidden";
                         var kurssinnimi2 = this.childNodes[0].textContent;
                         newDiv2.innerHTML = $(this).attr('id') + "<br>" + kurssinnimi2;
 

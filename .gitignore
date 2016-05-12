@@ -1,5 +1,13 @@
 .settings
 .project
-target/m2e-wtp/web-resources/META-INF/maven/fi.hhtt/HHTT/pom.properties
+target/*
 /target/
+<<<<<<< HEAD
 /target/m2e-wtp/web-resources/META-INF/maven/fi.hhtt/HHTT/pom.properties
+=======
+<<<<<<< HEAD
+=======
+target/*
+/bin/
+>>>>>>> 5d172d0a479c0fdf96ad2826db6f77589c373497
+>>>>>>> 86daa6b1ddc136ed4cbedeca203fe0b66930915b
