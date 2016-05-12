@@ -1,4 +1,4 @@
-
+ 
 //Jsonin luonti
 var kurssiLista = "[{\"Tunnus\":\"BUS2TN005-37\",\"Nimi\":\"Yrityksen taloudellisuus ja tuloksellisuus\",\"Osaamisryhma\":\"Business/Liiketalous\",\"Kieli\":\"FIN\",\"Op\":3,\"Opettaja\":\"Mikko Valtonen\",\"Toimipiste\":\"PASILA\",\"Ohjelma\":\"HETI\",\"Ryhma\":\"TN4PA \",\"Alkaa\":\"18.1.2016\",\"Paattyy\":\"18.3.2016\",\"1. periodi\":\"Tue 13:00-15:45\",\"2. periodi\":\"\",\"Huone\":\"6211 \"},"+
 "{\"Tunnus\":\"BUS2TN005-38\",\"Nimi\":\"Yrityksen taloudellisuus ja tuloksellisuus\",\"Osaamisryhma\":\"Business/Liiketalous\",\"Kieli\":\"FIN\",\"Op\":3,\"Opettaja\":\"Mikko Valtonen\",\"Toimipiste\":\"PASILA\",\"Ohjelma\":\"HETI\",\"Ryhma\":\"TN4PB \",\"Alkaa\":\"18.1.2016\",\"Paattyy\":\"18.3.2016\",\"1. periodi\":\"Tue 09:00-11:45\",\"2. periodi\":\"\",\"Huone\":\"6213 \"},"+
