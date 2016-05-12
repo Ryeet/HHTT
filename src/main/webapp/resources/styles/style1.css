@@ -206,7 +206,7 @@ h1	{
 	text-align: center;
 	background-blend-mode: darken;
 	z-index: 1;
-	border-radius: 5px;
+	border-radius: 6px;
 	position: absolute;
 }
 
@@ -220,6 +220,7 @@ h1	{
 {
 	background-color: yellow;
 	border: solid 1px yellow;
+	
 }
 
 .red
