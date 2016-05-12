@@ -12,20 +12,23 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 <spring:url value="/resources/styles/style.css" var="styleCSS" />
+<spring:url value="/resources/styles/style1.css" var="styleCSS1" />
 <spring:url value="/resources/js/elementsScript.js" var="elementJS" />
 
 <spring:url value="/resources/js/clickScript.js" var="clickJS" />
 <spring:url value="/resources/js/hoverScript.js" var="hoverJS" />
 <link href="${styleCSS}" rel="stylesheet" />
+<link href="${styleCSS1}" rel="stylesheet" />
 <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
 </head>
 <body>
 
 <div class="lukkarit">
-<div class="gotello">
+<div class="gotello" id="gotello1">
 
 <div class="otsikko"> 
 <h1>LUKUJÄRJESTYS PERIODI 1.</h1>
@@ -67,7 +70,7 @@
 
 </div>
 </div>
-<div class= "gotello">
+<div class= "gotello" id="gotello2">
     <div class="otsikko">
         <h1>LUKUJÄRJESTYS PERIODI 2.</h1>
     </div>
@@ -105,39 +108,37 @@
     <div id="Fri2" class="lukkaripalsta"> </div>
 </div>
 </div>
-<div id="scroll" data-role="main" class="ui-content">
-<form>
-	<input id="filterTable-input" data-type="search" placeholder="Hae mitä haluat...">
-</form>
-
-<table data-role="table" data-mode="columntoggle" class="qurssit ui-responsive ui-shadow table-stroke" id="myTable" data-filter="true" data-input="#filterTable-input" data-column-btn-text="Valitse mitä talulusta näytän">
-<thead>
-<tr>
-	<th><b>Kurssi</b></th>
-	<th data-priority="1"><b>Suoritustapa</b></th>
-	<th data-priority="2"><b>Op</b></th>
-	<th data-priority="3"><b>Ohjelma</b></th>
-	<th data-priority="4"><b>Osaamisalueryhmä</b></th>
-	<th data-priority="5"><b>Toimipiste</b></th>
-	<th><b>Tunnus</b></th>
-	<th><b>Opettaja(t)</b></th>
-	<th data-priority="6"><b>Huone</b></th>
-	<th><b>1. periodi</b></th>
-	<th><b>2. periodi</b></th>
-	<th data-priority="6"><b>Ryhmä</b></th>
-</tr>
-</thead>
-<tbody id='qurssit'>
-</tbody>
-</table>
-
-</div>
+<button>testi</button>
+<div id="whee"	style="text-align:center; width:150px; padding:10px;">
 	<p>WinhaWilleen </p>
 	<p>Ota tästä valitsemasi kurssitunnukset talteen!</p>
-	<div id="ww">
-	
-	</div>
-
+	<div id="ww"></div>
+</div>
+<div id="scroll" data-role="main" class="ui-content">
+	<form>
+		<input id="filterTable-input" data-type="search" placeholder="Hae mitä haluat...">
+	</form>
+	<table data-role="table" data-mode="columntoggle" class="qurssit ui-responsive ui-shadow table-stroke" id="myTable" data-filter="true" data-input="#filterTable-input" data-column-btn-text="Valitse mitä talulusta näytän">
+		<thead>
+			<tr>
+				<th><b>Kurssi</b></th>
+				<th data-priority="1"><b>Suoritustapa</b></th>
+				<th data-priority="2"><b>Op</b></th>
+				<th data-priority="3"><b>Ohjelma</b></th>
+				<th data-priority="4"><b>Osaamisalueryhmä</b></th>
+				<th data-priority="5"><b>Toimipiste</b></th>
+				<th><b>Tunnus</b></th>
+				<th><b>Opettaja(t)</b></th>
+				<th data-priority="6"><b>Huone</b></th>
+				<th><b>1. periodi</b></th>
+				<th><b>2. periodi</b></th>
+				<th data-priority="6"><b>Ryhmä</b></th>
+			</tr>
+		</thead>
+		<tbody id='qurssit'>
+		</tbody>
+	</table>
+</div>
 <!-- <c:out value="${jsonArray}"/> -->
 
 <script>
@@ -255,38 +256,38 @@ function lisaaLapsoset(){
 lisaaLapsoset();
 lisaaLapsoset2();
 luoKurssit();
+
 $(document).ready(function () {
 	$(".kurs").click(function () {
         var booli = $(this).attr('data-click');
         if (booli === "false") {
-        	
-        	var courseName = this.childNodes[1].textContent;
-        	var courseCode = this.childNodes[6].textContent;
-        	var input = document.createElement("input");
-            input.type = "text";
-            input.setAttribute("data-course-name", courseCode);
-            input.value = courseCode;
-            
-            var container = document.querySelector("#ww");
-            container.appendChild(input);
-//Haetaan kurssin tuntien ajankohdat elementi luokasta Nro.2 (Esim. paluu on Mon,12:00,15:45,,Wed,12:00,15:45,,Fri,12:00,15:45)
+        	//Haetaan kurssin tuntien ajankohdat elementi luokasta Nro.2 (Esim. paluu on Mon,12:00,15:45,,Wed,12:00,15:45,,Fri,12:00,15:45)
             var aikaLuokka = $(this).attr('class').split(' ')[1];
             var aikaLuokka2 = $(this).attr('class').split(' ')[2];
-//Jaetaan haettu aikaLuokka osiin ",," kohdasta. (Esim. osa0 Mon,12:00,15:45 - osa1 Wed,12:00,15:45 - osa2 Fri,12:00,15:45)
+			//Jaetaan haettu aikaLuokka osiin ",," kohdasta. (Esim. osa0 Mon,12:00,15:45 - osa1 Wed,12:00,15:45 - osa2 Fri,12:00,15:45)
             var aikaLuokkaOsissa = aikaLuokka.split(",,");
             var aikaLuokkaOsissa2 = aikaLuokka2.split(",,");
           //Muuttuja, johon merkataan meneekö jotkin kurssit päällekkäin lukujärjestyksessä
             var onkoEstetta = "false";
-			
 			//Lista johon lisättävät elementit lisätään
 			var lisattavatElementitLista=[];
 			//Lista, johon kasataan lisättävien elemnttien sijainnit
 			var lisattavienElementtienSijoitukset=[];
-			//Lista. johon kasataan true/false arvot päällekkäisyyksiä varten
 			var tarkistusLista=[];
-			
+			if(!aikaLuokka.match("undefined") || !aikaLuokka2.match("undefined")){
+				var courseName = this.childNodes[1].textContent;
+	        	var courseCode = this.childNodes[6].textContent;
+	        	var input = document.createElement("input");
+	            input.type = "text";
+	            input.setAttribute("data-course-name", courseCode);
+	            input.style.width = "130px";  // Directly
+	            input.value = courseCode;
+	            var container = document.querySelector("#ww");
+	            container.appendChild(input);
+			}
+			//Lista. johon kasataan true/false arvot päällekkäisyyksiä varten
             if (!aikaLuokka.match("undefined")){
-                for (var ii = 0; ii < aikaLuokkaOsissa.length; ii++) {
+            	for (var ii = 0; ii < aikaLuokkaOsissa.length; ii++) {
                     //
 					//Määritetään paikka, eli elementti, jonka sisään kurssielementti sijoitetaan.
                     var sij = aikaLuokkaOsissa[ii].substr(0, 9);
@@ -441,33 +442,36 @@ $(document).ready(function () {
 				
 				}
 				else {
-				                          for(var i=0;i<lisattavatElementitLista.length;i++) {
-				                              var lisattavaEl = lisattavatElementitLista[i];
-				                              var elSijoitus = lisattavienElementtienSijoitukset[i];
-				                              var pituus;
-				                              if(elSijoitus.length>9){				// Tarkistetaan, kumpaan periodiin elementti sijoitetaan
-				                                  pituus = elSijoitus.substr(0,4);
-				                              }else{
-				                                  pituus = elSijoitus.substr(0,3);
-				                              }
-				                              var korkia = lisattavaEl.style.height.replace("px", "");
-				
-				                              var merkattavienElementtienMaara = korkia/7;
-				
-				                              lisattavaEl.className += " red";
-				                              lisattavaEl.style.zIndex = "10";
-				                              document.getElementById(elSijoitus).appendChild(lisattavaEl);
-				
-				                              $('.red').fadeOut(3000);
-				                              setTimeout(function () {
-				                                  $('.red').remove();
-				                              }, 4000);
-				                          }
-				                  }
+			        for(var i=0;i<lisattavatElementitLista.length;i++) {
+			            var lisattavaEl = lisattavatElementitLista[i];
+			            var elSijoitus = lisattavienElementtienSijoitukset[i];
+			            var pituus;
+			            if(elSijoitus.length>9){				// Tarkistetaan, kumpaan periodiin elementti sijoitetaan
+			                pituus = elSijoitus.substr(0,4);
+			            }else{
+			                pituus = elSijoitus.substr(0,3);
+			            }
+			            var korkia = lisattavaEl.style.height.replace("px", "");
+			
+			            var merkattavienElementtienMaara = korkia/7;
+
+						var poistettavaInputinLuokka = lisattavaEl.className.substring(0, lisattavaEl.className.indexOf(" ",0));
+						if(poistettavaInputinLuokka != null){
+							document.querySelector("input[data-course-name='"+poistettavaInputinLuokka+"']").remove();
+						}
+			            lisattavaEl.className += " red";
+			            lisattavaEl.style.zIndex = "10";
+			            document.getElementById(elSijoitus).appendChild(lisattavaEl);
+			
+			            $('.red').fadeOut(3000);
+			            setTimeout(function () {
+			                $('.red').remove();
+			            }, 4000);
+			        }
+			}
 		}
 	if (booli === "true") {
 		var tamanElementinLuokka = $(this).attr('id');
-		console.log(tamanElementinLuokka);
     	document.querySelector("input[data-course-name='"+tamanElementinLuokka+"']").remove();
     	
     	var poistettavatElementit = document.getElementsByClassName($(this).attr('id'));

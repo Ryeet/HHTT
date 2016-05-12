@@ -10,24 +10,24 @@ import fi.hhtt.bean.Course;
 public class CourseRowMapper implements RowMapper<Course>{
 	public Course mapRow(ResultSet rs, int rowNum) throws SQLException{
 		Course c = new Course();
-		c.setBegins(rs.getString("begins"));
-		c.setCampus(rs.getString("campus"));
-		c.setCode(rs.getString("code"));
-		c.setCourse(rs.getString("course"));
-		c.setDescription(rs.getString("description"));
-		c.setEcts(rs.getString("ects"));
-		c.setEnds(rs.getString("ends"));
-		c.setEvening(rs.getBoolean("evening"));
-		c.setFieldofstudy(rs.getString("fieldofstudy"));
-		c.setGroup(rs.getString("class"));
-		c.setLanguage(rs.getString("language"));
-		c.setModified(rs.getBoolean("modified"));
-		c.setPeriod1(rs.getString("period1"));
-		c.setPeriod2(rs.getString("period2"));
-		c.setProgramme(rs.getString("programme"));
-		c.setRoom(rs.getString("room"));
-		c.setStudymethod(rs.getString("studymethod"));
-		c.setTeacher(rs.getString("teacher"));
+		c.setBegins(rs.getString("alkaa"));
+		c.setCampus(rs.getString("toimipiste"));
+		c.setCode(rs.getString("tunnus"));
+		c.setCourse(rs.getString("opintojakso"));
+		c.setDescription(rs.getString("kuvaus"));
+		c.setEcts(rs.getString("op"));
+		c.setEnds(rs.getString("paattyy"));
+		c.setEvening(rs.getBoolean("ilta"));
+		c.setFieldofstudy(rs.getString("osaamisalueryhma"));
+		c.setGroup(rs.getString("ryhma"));
+		c.setLanguage(rs.getString("kieli"));
+		c.setModified(rs.getBoolean("muutettu"));
+		c.setPeriod1(rs.getString("periodi1"));
+		c.setPeriod2(rs.getString("periodi2"));
+		c.setProgramme(rs.getString("ohjelma"));
+		c.setRoom(rs.getString("huone"));
+		c.setStudymethod(rs.getString("suoritustapa"));
+		c.setTeacher(rs.getString("opettaja"));
 		
 		return c;
 		
