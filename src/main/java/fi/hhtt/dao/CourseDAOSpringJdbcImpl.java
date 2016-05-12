@@ -23,7 +23,7 @@ public class CourseDAOSpringJdbcImpl implements CourseDAO{
 	
 	
 	public List<Course> listCourses() {
-		String sql = "select * from course;";
+		String sql = "select * from kurssi;";
 		RowMapper<Course> mapper = new CourseRowMapper();
 		List<Course> courses = jdbcTemplate.query(sql, mapper);	
 		return courses;
