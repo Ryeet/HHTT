@@ -2,3 +2,8 @@
 .project
 target/*
 /target/
+<<<<<<< HEAD
+=======
+target/*
+/bin/
+>>>>>>> 5d172d0a479c0fdf96ad2826db6f77589c373497

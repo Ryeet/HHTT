@@ -21,12 +21,12 @@ $(".kurs").mouseenter(function () {
 
 // Luodaan uusi div-elementti
                     var newDiv = document.createElement('div');
-
                     newDiv.className = $(this).attr('id');
                     newDiv.className += " lukkariLisays";
                     var kurssinnimi = this.childNodes[0].textContent;
                     newDiv.innerHTML = $(this).attr('id') + "<br>" + kurssinnimi;
                     
+           
                     var korkeu = 28 * ((aikaLuokkaOsissa[ii].substr(10, 2) - aikaLuokkaOsissa[ii].substr(4, 2)) + ((aikaLuokkaOsissa[ii].substr(13, 2) - aikaLuokkaOsissa[ii].substr(7, 2)) / 60));
                     var korkeus = parseInt(korkeu);
 
@@ -56,11 +56,11 @@ $(".kurs").mouseenter(function () {
 
 // Luodaan uusi div-elementti
                     var newDiv2 = document.createElement('div');
-
                     newDiv2.className = $(this).attr('id');
                     newDiv2.className += " lukkariLisays";
                     var kurssinnimi2 = this.childNodes[0].textContent;
-                    newDiv2.innerHTML = $(this).attr('id') + "<br>" + kurssinnimi2;
+                    newDiv2.innerHTML = $(this).attr('id') + "<br>" + kurssinnimi2;        
+                    
                     var korkeu2 = 28 * ((aikaLuokkaOsissa2[ii2].substr(10, 2) - aikaLuokkaOsissa2[ii2].substr(4, 2)) + ((aikaLuokkaOsissa2[ii2].substr(13, 2) - aikaLuokkaOsissa2[ii2].substr(7, 2)) / 60));
                     var korkeus2 = parseInt(korkeu2);
 
