@@ -131,6 +131,8 @@ $(".palsta15min").mouseenter(function () {
 	}
 });
 //sulkee kuvauksen(popover)
+
+
 $(".palsta15min").mouseleave(function(){
 	$('.popover').each(function() {
 		if($( "div" ).hasClass("popover fade right in") || $( "div" ).hasClass("popover fade left in")){
@@ -149,9 +151,10 @@ $(".palsta15min").mouseleave(function(){
 		$(this).siblings(":last").css("background-color", "blue");
 		var vika = $(this).nextAll();
 		for(var c=0;c<vika.length;c++){
-			if(vika[c].hasAttribute("data-check","false")) {
+			if(vika[c].getAttribute("data-check") == "false") {
 			   console.log(vika[c].id);
-			   }
+			}
+			++c
 		}
 		//console.log("3. " + vika);
 		$(this).siblings(":first").css("background-color", "blue");

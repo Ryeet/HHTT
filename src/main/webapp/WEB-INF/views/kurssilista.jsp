@@ -105,6 +105,12 @@
     <div id="Fri2" class="lukkaripalsta"> </div>
 </div>
 </div>
+<div id="ss" style="">
+	<p>Näytä kurssit</p>
+	</div>
+	<div id="ww">
+	
+	</div>
 <div id="scroll" data-role="main" class="ui-content">
 <form>
 	<input id="filterTable-input" data-type="search" placeholder="Hae mitä haluat...">
@@ -130,14 +136,26 @@
 <tbody id='qurssit'>
 </tbody>
 </table>
-
 </div>
-	<p>WinhaWilleen </p>
-	<p>Ota tästä valitsemasi kurssitunnukset talteen!</p>
-	<div id="ww">
-	
-	</div>
 
+
+<style>#ss {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+
+  /* also accepts left, right, top, bottom coordinates; not required, but a good idea for styling */
+  -webkit-transform-origin: 90% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  transform-origin: 90% 100%;
+
+  /* Should be unset in IE9+ I think. */
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}</style>
 <!-- <c:out value="${jsonArray}"/> -->
 
 <script>
@@ -170,6 +188,10 @@ var kurssiLista = "[{\"Tunnus\":\"BUS2TN005-37\",\"Nimi\":\"Yrityksen taloudelli
 "{\"Tunnus\":\"SWD4TN014-12\",\"Nimi\":\"Intranet- ja dokumentinhallintaratkaisut, SharePoint 2010\",\"Osaamisryhma\":\"Ohjelmistokehitys/Software Development\",\"Kieli\":\"FIN\",\"Op\":3,\"Opettaja\":\"Elina Ulpovaara\",\"Toimipiste\":\"PASILA\",\"Ohjelma\":\"HETI\",\"Ryhma\":\"TN4PA TN6PA \",\"Alkaa\":\"28.3.2016\",\"Paattyy\":\"20.5.2016\",\"1. periodi\":\"\",\"2. periodi\":\"Wed 08:00-11:45\",\"Huone\":\"1K006 \"},"+
 "{\"Tunnus\":\"SWD4TN015-10\",\"Nimi\":\"Hypermedia\",\"Osaamisryhma\":\"Ohjelmistokehitys/Software Development\",\"Kieli\":\"FIN\",\"Op\":3,\"Opettaja\":\"Mirja Jaakkola\",\"Toimipiste\":\"PASILA\",\"Ohjelma\":\"HETI\",\"Ryhma\":\"TN4PA \",\"Alkaa\":\"28.3.2016\",\"Paattyy\":\"20.5.2016\",\"1. periodi\":\"\",\"2. periodi\":\"Mon 08:00-11:45\",\"Huone\":\"4012 \"}]"
 var kurssiObj = JSON.parse(kurssiLista);
+$( "#ss" ).click(function() {
+	  $( "#ww" ).toggle( "slow", function() {
+	  });
+	});
 function lisaaLapsoset(){
 
 	var x = ["Mon", "Tue", "Wed", "Thu", "Fri"];
