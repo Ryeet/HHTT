@@ -107,7 +107,7 @@
 
 <div id="scroll">
 <table id="qurssit" class="qurssit"> 
-<tr><td><b>Kurssi</b></td><td><b>Tunnus</b></td><td><b>Opettaja(t)</b></td><td><b>1. periodi</b></td><td><b>2. periodi</b></td></tr>
+<tr><td><b>Kurssi</b></td> <td><b>Suoritustapa</b></td> <td><b>Tunnus</b></td><td><b>Opettaja(t)</b></td><td><b>1. periodi</b></td><td><b>2. periodi</b></td></tr>
 </table>
 </div>
 

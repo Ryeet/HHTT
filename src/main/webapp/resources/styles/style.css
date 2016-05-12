@@ -154,3 +154,11 @@
 {
 	background-color: red;
 }
+#myTable{
+	position: relative;
+	width: 100%;
+}
+#searchfield{
+	width: 50%;
+	height: 10px;
+}

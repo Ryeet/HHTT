@@ -9,6 +9,7 @@
 <title>KURSSIVALINTA</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 <spring:url value="/resources/styles/style.css" var="styleCSS" />
 <spring:url value="/resources/js/elementsScript.js" var="elementJS" />
@@ -16,6 +17,7 @@
 <spring:url value="/resources/js/clickScript.js" var="clickJS" />
 <spring:url value="/resources/js/hoverScript.js" var="hoverJS" />
 <link href="${styleCSS}" rel="stylesheet" />
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
 
 </head>
@@ -104,9 +106,29 @@
     <div id="Fri2" class="lukkaripalsta"> </div>
 </div>
 </div>
-<div id="scroll">
-<table id="qurssit" class="qurssit"> 
-<tr><td><b>Kurssi</b></td><td><b>Tunnus</b></td><td><b>Opettaja(t)</b></td><td><b>1. periodi</b></td><td><b>2. periodi</b></td></tr>
+<div id="scroll" data-role="main" class="ui-content">
+<form>
+	<input id="filterTable-input" data-type="search" placeholder="Hae henkilˆ mit‰ haluat....">
+</form>
+<table data-role="table" data-mode="columntoggle" class="qurssit ui-responsive ui-shadow" id="myTable" data-filter="true" data-input="#filterTable-input" data-column-btn-text="Valitse mit‰ talulusta n‰yt‰n">
+<thead>
+<tr>
+	<th><b>Kurssi</b></th>
+	<th data-priority="1"><b>Suoritustapa</b></th>
+	<th data-priority="2"><b>Op</b></th>
+	<th data-priority="3"><b>Ohjelma</b></th>
+	<th data-priority="4"><b>Osaamisalueryhm‰</b></th>
+	<th data-priority="5"><b>Toimipiste</b></th>
+	<th><b>Tunnus</b></th>
+	<th><b>Opettaja(t)</b></th>
+	<th data-priority="6"><b>Huone</b></th>
+	<th><b>1. periodi</b></th>
+	<th><b>2. periodi</b></th>
+	<th data-priority="6"><b>Ryhm‰</b></th>
+</tr>
+</thead>
+<tbody id='qurssit'>
+</tbody>
 </table>
 </div>
 
@@ -206,7 +228,18 @@ function lisaaLapsoset(){
 	        // Etsit‰n lis‰tty table ja lis‰t‰‰n sille itse luotu attribuutti "data-click" (kertoo onko painiketta painettu, k‰ytet‰n v‰rien muuttamiseen)
 	        newTr.setAttribute("data-click", false);
 	        // Lis‰t‰n teksti painikkeen sis‰lle
-	        newTr.innerHTML = "<td class='nimi'>" + kurssiObj[i].Nimi + "</td><td class='tunnus'>" + kurssiObj[i].Tunnus + "</td><td class='opettaja'>" + kurssiObj[i].Opettaja + "</td><td class='per1'>" + kurssiObj[i]["1. periodi"] + "</td><td class='per2'>" + kurssiObj[i]["2. periodi"] + "</td>"  ;
+	        newTr.innerHTML = "<td class='nimi'>" + kurssiObj[i].Nimi + 
+	        "<td class='suoritustapa'>" + kurssiObj[i].Suoritustapa + 
+	        "</td><td class='op'>" + kurssiObj[i].Op + 
+	        "</td><td class='ohjelma'>" + kurssiObj[i].Ohjelma + 
+	        "</td><td class='osaamisryhma'>" + kurssiObj[i].Osaamisryhma + 
+	        "</td><td class='toimipiste'>" + kurssiObj[i].Toimipiste + 
+	        "</td><td class='tunnus'>" + kurssiObj[i].Tunnus + 
+	        "</td><td class='opettaja'>" + kurssiObj[i].Opettaja +
+	        "</td><td class='huone'>" + kurssiObj[i].Huone +
+	        "</td><td class='per1'>" + kurssiObj[i]["1. periodi"] + 
+	        "</td><td class='per2'>" + kurssiObj[i]["2. periodi"] + "</td>" + 
+	        "<td class='ryhma'>" + kurssiObj[i].Ryhma +"</td>";
 	        // Lis‰t‰n table-elementti html:n body-osioon
 	        document.getElementById("qurssit").appendChild(newTr);
 	        // Jaetaan 1. periodin kent‰ss‰ oleva teksti osiin v‰lily‰ntien ja viivojen kohdalta
@@ -493,6 +526,7 @@ $(document).ready(function () {
     });
 
     });
+   
 </script>
 <!--  <script type="js">console.log(<c:out value="${jsonArray}" escapeXml="false"/>);</script> -->
 <script src="${hoverJS}"></script>

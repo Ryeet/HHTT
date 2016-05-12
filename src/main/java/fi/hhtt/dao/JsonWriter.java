@@ -14,7 +14,7 @@ public class JsonWriter{
 			obj.put("Toimipiste", course.getCampus());
 			obj.put("Tunnus", course.getCode());
 			obj.put("Nimi", course.getCourse());
-			obj.put("description", course.getDescription());
+			obj.put("Kuvaus", course.getDescription());
 			obj.put("Op", course.getEcts());
 			obj.put("Paattyy", course.getEnds());
 			obj.put("Osaamisryhma", course.getFieldofstudy());
@@ -24,10 +24,10 @@ public class JsonWriter{
 			obj.put("2. periodi", course.getPeriod2());
 			obj.put("Ohjelma", course.getProgramme());
 			obj.put("Huone", course.getRoom());
-			obj.put("studymethod", course.getStudymethod());
+			obj.put("Suoritustapa", course.getStudymethod());
 			obj.put("Opettaja", course.getTeacher());
-			obj.put("modified", course.isModified());
-			obj.put("evening", course.isEvening());
+			obj.put("Muutettu", course.isModified());
+			obj.put("Ilta", course.isEvening());
 			//System.out.println(obj.toString());
 			jsonArray.put(obj);
 	//	}
