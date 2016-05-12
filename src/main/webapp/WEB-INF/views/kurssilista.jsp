@@ -108,12 +108,7 @@
     <div id="Fri2" class="lukkaripalsta"> </div>
 </div>
 </div>
-<button>testi</button>
-<div id="whee"	style="text-align:center; width:150px; padding:10px;">
-	<p>WinhaWilleen </p>
-	<p>Ota tästä valitsemasi kurssitunnukset talteen!</p>
-	<div id="ww"></div>
-</div>
+
 <div id="scroll" data-role="main" class="ui-content">
 	<form>
 		<input id="filterTable-input" data-type="search" placeholder="Hae mitä haluat...">
@@ -140,8 +135,17 @@
 	</table>
 </div>
 <!-- <c:out value="${jsonArray}"/> -->
-
+<div style="width:150px;">
+	<a id="coursesButton" class="btn" onclick="toggleCourses">Kurssit tämän napin alla</a>
+	<div id="whee"	style="text-align:center; width:150px; padding:10px; display:none">
+		<div id="ww"></div>
+	</div>
+</div>
 <script>
+$("#coursesButton").click(function(){
+	$("#whee").toggle();
+});
+
 var kurssiObj = <c:out value="${jsonArray}" escapeXml="false"/>;
 function lisaaLapsoset(){
 
