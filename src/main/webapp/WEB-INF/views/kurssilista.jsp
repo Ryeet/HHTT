@@ -135,10 +135,10 @@
 	</table>
 </div>
 <!-- <c:out value="${jsonArray}"/> -->
-<div style="width:150px;">
-	<a id="coursesButton" class="btn" onclick="toggleCourses">Kurssit tämän napin alla</a>
-	<div id="whee"	style="text-align:center; width:150px; padding:10px; display:none">
-		<div id="ww"></div>
+<div style="width:250px; margin:0 auto; padding:10px; text-align:center;">
+	<a id="coursesButton" class="btn">Valitut kurssit tämän napin alla</a>
+	<div id="whee" style="margin: 0 auto; width:150px; padding:10px; display:none">
+		<div id="ww" ></div>
 	</div>
 </div>
 <script>
