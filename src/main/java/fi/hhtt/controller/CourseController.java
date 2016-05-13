@@ -33,9 +33,9 @@ public class CourseController {
 	
 	@RequestMapping (value="kurssilista", method=RequestMethod.GET)
 	public String getJson(Model model){
-	//	JSONArray jsonArray = dao.listCoursesToJsonFormat();
-		//model.addAttribute("jsonArray", jsonArray);
-		//System.out.println(jsonArray.toString());
+	JSONArray jsonArray = dao.listCoursesToJsonFormat();
+		model.addAttribute("jsonArray", jsonArray);
+		System.out.println(jsonArray.toString());
 		return "kurssilista";
 	}
 }

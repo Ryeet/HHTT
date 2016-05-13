@@ -146,17 +146,39 @@ $(".palsta15min").mouseleave(function(){
 		console.log("1. "+$( this ).parent().get( 0 ).id); 
 		 if($( this ).attr("data-check") == "false" ) {
 		console.log("2. "+this.id)
-	$(this).prevAll().css("background-color", "black");
-		$(this).nextAll().css("background-color", "black");
 		$(this).siblings(":last").css("background-color", "blue");
-		var vika = $(this).nextAll();
-		for(var c=0;c<vika.length;c++){
-			if(vika[c].getAttribute("data-check") == "false") {
-			   console.log(vika[c].id);
+		var vikaCheck = $(this).nextAll();
+		var ekaCheck = $(this).prevAll();
+		for(var h=0;h<ekaCheck.length;h++){
+			//ekaCheck[h-1].css("background-color", "black");
+			var ekaCheckTausta = $(this).css("background-color", "black");
+			if(ekaCheck[h].getAttribute("data-check") == "true") {
+			   var eka = ekaCheck[h-1].id;
+				console.log("eka: " + eka);
+			   break;
 			}
-			++c
+			else{
+				if(h == ekaCheck.length-1) {
+					eka = ekaCheck[ekaCheck.length-1].id;
+				console.log("eka: " + eka);
+			}
+			}
 		}
-		//console.log("3. " + vika);
+		for(var c=0;c<vikaCheck.length;c++){
+			var takaTausta = $(this).css("background-color", "black");
+			if(vikaCheck[c].getAttribute("data-check") == "true") {
+				var vika = vikaCheck[c].id;
+			   console.log("vika: " + vika);
+			   break;
+			}
+			else{
+				if(c == vikaCheck.length-1) {
+					vika = vikaCheck[vikaCheck.length-1].id;
+				console.log("vika: " + vika);
+			}
+			}
+		}
+		//console.log("3. " + vikaCheck);
 		$(this).siblings(":first").css("background-color", "blue");
 		var pa;
 		var sa = (function() {	
