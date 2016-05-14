@@ -39,8 +39,6 @@ crossorigin="anonymous">-->
 </head>
 
 <body>
-
-
 	<div class="lukkarit">
 		<div class="gotello" id="gotello1">
 			<div class="otsikko">
@@ -56,9 +54,7 @@ crossorigin="anonymous">-->
 					<td>PE</td>
 				</tr>
 			</table>
-
 			<div class="kaikkipalstat">
-
 				<div class="tunnit">
 					<div class="tunti">8.00</div>
 					<div class="tunti">9.00</div>
@@ -74,7 +70,6 @@ crossorigin="anonymous">-->
 					<div class="tunti">19.00</div>
 					<div class="tunti">20.00</div>
 				</div>
-
 				<div id="Mon" class="lukkaripalsta"></div>
 				<div id="Tue" class="lukkaripalsta"></div>
 				<div id="Wed" class="lukkaripalsta"></div>
@@ -112,7 +107,6 @@ crossorigin="anonymous">-->
 				<div class="tunti">19.00</div>
 				<div class="tunti">20.00</div>
 			</div>
-
 			<div id="Mon2" class="lukkaripalsta2"></div>
 			<div id="Tue2" class="lukkaripalsta2"></div>
 			<div id="Wed2" class="lukkaripalsta2"></div>
@@ -152,15 +146,14 @@ crossorigin="anonymous">-->
 	<p>Ota tästä valitsemasi kurssitunnukset talteen!</p>
 	<div id="ww"></div>
 	
-	
-	<script src="elementsScript.js"></script>
-	<script>lisaaLapsoset();</script>
-	<script>lisaaLapsoset2();</script>
-	<script>luoKurssit()</script>
-	<script src="clickScript.js"></script>
-	<script src="hoverScript.js"></script>
-	<c:out value="${jsonArray}" />
-	<script src="${elementJS}"></script>
+<script src="elementsScript.js"></script>
+<script>lisaaLapsoset();</script>
+<script>lisaaLapsoset2();</script>
+<script>luoKurssit()</script>
+<script src="clickScript.js"></script>
+<script src="hoverScript.js"></script>
+<c:out value="${jsonArray}" />
+<script src="${elementJS}"></script>
 	<script>
 		lisaaLapsoset();
 	</script>

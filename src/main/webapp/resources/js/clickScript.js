@@ -196,10 +196,7 @@ $(document).ready(function () {
 			
 			            var merkattavienElementtienMaara = korkia/7;
 
-						var poistettavaInputinLuokka = lisattavaEl.className.substring(0, lisattavaEl.className.indexOf(" ",0));
-						if(poistettavaInputinLuokka != null){
-							document.querySelector("input[data-course-name='"+poistettavaInputinLuokka+"']").remove();
-						}
+						
 			            lisattavaEl.className += " red";
 			            lisattavaEl.style.zIndex = "10";
 			            document.getElementById(elSijoitus).appendChild(lisattavaEl);
@@ -208,6 +205,9 @@ $(document).ready(function () {
 			            setTimeout(function () {
 			                $('.red').remove();
 			            }, 4000);
+			            
+			            var poistettavaInputinLuokka = lisattavaEl.className.substring(0, lisattavaEl.className.indexOf(" ",0));
+						document.querySelector("input[data-course-name='"+poistettavaInputinLuokka+"']").remove();
 			        }
 			}
 		}
