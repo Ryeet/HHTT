@@ -387,9 +387,26 @@ $(document).ready(function () {
  		console.log(loppuCheck);
  		for (var i = 1; i < document.getElementById("qurssit").childNodes.length; i++) {
  			var kysKurssi = document.getElementById("qurssit").childNodes[i];
- 			//console.log("testi: " + kysKurssi.className.substring(0, kysKurssi.className.indexOf(",," , 0)));
+ 			//console.log("testi: " + kysKurssi.className.substring(5, kysKurssi.className.indexOf(" ")));
+ 		
  		if(kysKurssi.className.substring(0, kysKurssi.className.indexOf(",," , 0)).includes(eka)){
  			console.log("löydetty: " + i + ". " + kysKurssi.className);
+ 	//		for(var i13 = 1;i13 < kysKurssi.className.length; i13++){
+ 		//		var merkki = " ";
+ 			//	var vali = 0;
+ 				//if(kysKurssi.className.substring(i13 , kysKurssi.length).includes(merkki)){
+ 					//i13 = kysKurssi.className.indexOf(merkki);
+ 				//	vali++;
+ 				//}
+ 			//}
+ 			//console.log("välien määrä: "+vali);
+ 			var tunnit12 = kysKurssi.className;
+ 		    delimiter = ' ',
+ 		    start = 1,
+ 		    tokens = tunnit12.split(delimiter).slice(start),
+ 		    result = tokens.join(delimiter); // those.that
+ 			console.log("orig: "+kysKurssi.className);
+ 			console.log("result: "+result);
  		}
  	}
  	}
