@@ -492,7 +492,7 @@ $(document).ready(function () {
            				 //console.log("lopputuntisama")
            			 }
             		 
-           			 if(alkuTuntiSama && alkuMinCheck <= alkuMin){
+           			 if(alkuTuntiSama && alkuMinCheck >= alkuMin){
            				 testitLapi = testitLapi+1;
            				 //console.log("testi läpinro: "+testitLapi)
            				 //console.log("1")
@@ -531,7 +531,7 @@ $(document).ready(function () {
             	} //END: if(kysPeriodi.includes(paivaCheck))
             } //END: if(kysPeriodi !== "undefined")
             
-            if(testitLapi < 20 || kysPeriodi ==="undefined"){
+            if(testitLapi < 20 || kysPeriodi =="undefined"){
             	$(kysKurssi).css("display" , "none");
     		 }
             //console.log(i);
