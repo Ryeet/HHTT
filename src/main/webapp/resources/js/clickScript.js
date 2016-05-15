@@ -382,14 +382,14 @@ $(document).ready(function () {
  			    while(rivit.previousSibling){
  			        rivit = rivit.previousSibling;
  			        if(rivit.nodeType === 1){
+ 			        	if(rivit.getAttribute("data-check") == "true"){
+ 	 			        	break;
+ 	 			        }
  			        	if(onOlemassa == false || loytyyKurssi && onOlemassa){
  			        		$(rivit).addClass("cur");
  			        		$(vikaNro).addClass("cur");
  			        		lisaaVikaan = true;
  			        	}
- 			        if(rivit.getAttribute("data-check") == "true"){
- 			        	break;
- 			        }
  			        v++;
  			        }
  			    }
