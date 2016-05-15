@@ -3,6 +3,24 @@
 body {
 	background-color:#e6e6ec;
 }
+.rotate {
+
+/* Safari */
+-webkit-transform: rotate(-90deg);
+
+/* Firefox */
+-moz-transform: rotate(-90deg);
+
+/* IE */
+-ms-transform: rotate(-90deg);
+
+/* Opera */
+-o-transform: rotate(-90deg);
+
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+}
 .lukkarit {
 	width:	95%;
 	margin: auto;
@@ -33,7 +51,9 @@ body {
 	margin-top: 10px;
 	box-shadow:0px 17px 22px -20px rgba(87, 87, 87,1);
 }
-
+.lukkariLisays:hover{
+	max-height:130%;
+}
 .qurssit {
 	display:block;
 	border-collapse: collapse;

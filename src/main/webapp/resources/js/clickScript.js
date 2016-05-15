@@ -45,7 +45,7 @@ $(document).ready(function () {
 
                         var kurssinnimi = this.childNodes[0].textContent;
             			
-                        newDiv.innerHTML = $(this).attr('id') + "<br>" + kurssinnimi;
+                        newDiv.innerHTML = "<p style='font-size:75%;'><b>"+$(this).attr('id') + "</b><br>" + kurssinnimi+"</p>";
 
                         var korkeu = 28 * ((aikaLuokkaOsissa[ii].substr(10, 2) - aikaLuokkaOsissa[ii].substr(4, 2)) + ((aikaLuokkaOsissa[ii].substr(13, 2) - aikaLuokkaOsissa[ii].substr(7, 2)) / 60));
                         var korkeus = parseInt(korkeu);
@@ -98,7 +98,7 @@ $(document).ready(function () {
                         newDiv2.className = $(this).attr('id');
                         newDiv2.className += " lukkariLisays";
                         var kurssinnimi2 = this.childNodes[0].textContent;
-                        newDiv2.innerHTML = $(this).attr('id') + "<br>" + kurssinnimi2;
+                        newDiv2.innerHTML = "<p style='font-size:75%;'><b>"+$(this).attr('id') + "</b><br>" + kurssinnimi2+"</p>";
 
                         var korkeu2 = 28 * ((aikaLuokkaOsissa2[ii2].substr(10, 2) - aikaLuokkaOsissa2[ii2].substr(4, 2)) + ((aikaLuokkaOsissa2[ii2].substr(13, 2) - aikaLuokkaOsissa2[ii2].substr(7, 2)) / 60));
                         var korkeus2 = parseInt(korkeu2);
@@ -306,7 +306,7 @@ $(document).ready(function () {
  	}
  });
  //sulkee kuvauksen(popover)
-
+ 
 
  $(".palsta15min").mouseleave(function(){
  	$('.popover').each(function() {
@@ -544,4 +544,16 @@ $(document).ready(function () {
  		} //END: for (var i = 1; i < document.getElementById("qurssit").childNodes.length; i++)
  		console.log(loytynytMaara);
  	});
- });
+ 	$("#printButton").click(function () {
+ 		var printW = window.open("");
+ 		printW.document.writeln('<!DOCTYPE html>');
+ 		printW.document.writeln('<html><head><title></title>');
+ 		printW.document.writeln('<link rel="stylesheet" type="text/css" href='+'"'+printti+'"'+'>');
+ 		printW.document.writeln('</head><body>');
+ 		printW.document.writeln(document.getElementById("lukkarit").innerHTML);
+ 		printW.document.writeln('</body></html>');
+ 		printW.print();
+ 		printW.close();
+ 		
+ 	}); 
+});

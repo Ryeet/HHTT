@@ -25,6 +25,14 @@ public class JsonWriter {
 			obj.put("Osaamisryhma", course.getFieldofstudy().trim());
 			obj.put("Ryhma", course.getGroup().trim());
 			obj.put("Kieli", course.getLanguage().trim());
+			obj.put("1. periodi", course.getPeriod1().trim());
+			obj.put("2. periodi", course.getPeriod2().trim());
+			obj.put("Ohjelma", course.getProgramme().trim());
+			obj.put("Huone", course.getRoom().trim());
+			obj.put("Suoritustapa", course.getStudymethod().trim());
+			obj.put("Opettaja", course.getTeacher().trim());
+			obj.put("Muutettu", course.isModified());
+			obj.put("Ilta", course.isEvening());
 			if (course.getPeriod1().matches("") && course.getPeriod2().matches("")) {
 				tyhjaPeriodi = true;
 			}
@@ -47,18 +55,8 @@ public class JsonWriter {
 					intensiivi = true;
 				}
 			}
-		
-			obj.put("1. periodi", course.getPeriod1().trim());
-			obj.put("2. periodi", course.getPeriod2().trim());
-			obj.put("Ohjelma", course.getProgramme().trim());
-			obj.put("Huone", course.getRoom().trim());
-			obj.put("Suoritustapa", course.getStudymethod().trim());
-			obj.put("Opettaja", course.getTeacher().trim());
-			obj.put("Muutettu", course.isModified());
-			obj.put("Ilta", course.isEvening());
-
 			// System.out.println(obj.toString());
-			if (intensiivi == false && tyhjaPeriodi == false && eiAikaa == false || eiAikaa2 == false) {
+			if (tyhjaPeriodi == false && eiAikaa == false || eiAikaa2 == false) {
 				jsonArray.put(obj);
 			}
 			tyhjaPeriodi = false;

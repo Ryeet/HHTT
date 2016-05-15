@@ -16,18 +16,22 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 <spring:url value="/resources/styles/style.css" var="styleCSS" />
 <spring:url value="/resources/styles/style1.css" var="styleCSS1" />
+<spring:url value="/resources/styles/printti.css" var="printtiCSS" />
 <spring:url value="/resources/js/elementsScript.js" var="elementJS" />
 
 <spring:url value="/resources/js/clickScript.js" var="clickJS" />
 <spring:url value="/resources/js/hoverScript.js" var="hoverJS" />
 <link href="${styleCSS}" rel="stylesheet" />
 <link href="${styleCSS1}" rel="stylesheet" />
+<link href="${printtiCSS}" rel="stylesheet" media="print" />
 <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-
+<script>
+var printti = "/HHTT/resources/styles/printti.css";
+</script>
 </head>
 <body>
 
-<div class="lukkarit">
+<div id="lukkarit"class="lukkarit">
 <div class="gotello" id="gotello1">
 
 <div class="otsikko"> 
@@ -107,19 +111,23 @@
     <div id="Thu2" class="lukkaripalsta"> </div>
     <div id="Fri2" class="lukkaripalsta"> </div>
 </div>
-</div>
-
-<div id="passs" data-role="main" class="ui-grid-a">
-	<form class=ui-block-a" style="display:inline-block;">
-		<input id="filterTable-input" data-type="search" placeholder="Hae mitä haluat...">
-	<a id="coursesButton" class="btn">Valitut kurssit tämän napin alla</a>
+<div style="block;float:left;">
 	<div id="whee" style="display:none">
 		<div id="ww" ></div>
 	</div>
+</div>
+</div>
+<a id="coursesButton" class="ui-btn ui-btn-inline ui-mini" style="position:absolute;left: 23%;top: 59%; text-align:vertical; z-index:99;">Näytä valitut kurssit</a>
+		<a id="printButton" class="ui-btn ui-btn-inline ui-mini" style="position:absolute;left: 37%;top: 59%; text-align:vertical; z-index:99;" >Tulosta kalenterit</a>
+<div id="passs" data-role="main" class="ui-grid-a">
+<div class="u-block-a">
+	<form class=ui-block-a>
+		<input id="filterTable-input" data-type="search" placeholder="Syötä hakutermi">
 	</form>
-	<table data-role="table" data-mode="columntoggle" class="qurssit ui-responsive ui-shadow table-stroke" id="myTable" data-filter="true" data-input="#filterTable-input" data-column-btn-text="Valitse mitä talulusta näytän">
+</div>
+	<table data-role="table" data-mode="columntoggle" class="qurssit ui-responsive ui-shadow table-stroke" id="myTable" data-filter="true" data-input="#filterTable-input" data-column-btn-text="Valitse taulun tiedot">
 		<thead>
-			<tr>
+			<tr id="jotain">
 				<th><b>Kurssi</b></th>
 				<th data-priority="1"><b>Suoritustapa</b></th>
 				<th data-priority="2"><b>Op</b></th>
@@ -131,7 +139,7 @@
 				<th data-priority="6"><b>Huone</b></th>
 				<th><b>1. periodi</b></th>
 				<th><b>2. periodi</b></th>
-				<th data-priority="7"><b>Ryhmä</b></th>
+				<th data-priority="6"><b>Ryhmä</b></th>
 			</tr>
 		</thead>
 		<tbody id='qurssit'>
