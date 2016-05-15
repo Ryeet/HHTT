@@ -320,6 +320,7 @@ $(document).ready(function () {
  	if ( $( this ).parent()) {
  		//var paivaCheck = $( this ).parent().get( 0 ).id;
  		//console.log("1. "+$( this ).parent().get( 0 ).id); 
+ 		var kyseinen = $( this );
  		 if($( this ).attr("data-check") == "false" ) {
  	//	console.log("2. "+this.id)
  	//	$(this).siblings(":last").css("background-color", "blue");
@@ -355,33 +356,64 @@ $(document).ready(function () {
  		}
 
  		var vikaNro = document.getElementById(vika);
+ 		var rivit = document.getElementById(vika);
 	 	var ekaNro = document.getElementById(eka);
  		//	console.log("check: "+vika)
+ 			lisaaVikaan = false;
+ 			var onOlemassa = false;
+ 			var tarkista = $(this).attr('class').split(' ')[2];
+ 			if(tarkista == ""){
+ 				onOlemassa = false;
+ 			}
+ 			if(tarkista =="cur"){
+ 				onOlemassa = true;
+ 				$(".palsta15min").removeClass("cur");
+ 			}
+ 	 			
  			
- 			function ekatRivit(vikaNro){
+ 			
+			}
+ 			function ekatRivit(rivit){
  			    var v=0;
- 			    while(vikaNro.previousSibling){
- 			        vikaNro = vikaNro.previousSibling;
- 			        if(vikaNro.nodeType === 1){
- 			        	if(vikaNro.getAttribute("data-check") == "true"){
+ 			    while(rivit.previousSibling){
+ 			        rivit = rivit.previousSibling;
+ 			        if(rivit.nodeType === 1){
+ 			        	if(onOlemassa == false){
+ 			        	$(rivit).addClass("cur");
+ 			        	$(vikaNro).addClass("cur");
+ 			        	lisaaVikaan = true;
+ 			        	}
+ 			        	if(rivit.getAttribute("data-check") == "true"){
  	 			        	break;
  	 			        	}
  			            v++;
  			        }
  			    }
+ 			    if(lisaaVikaan){
+ 			    }
  			    return v;
  			}
- 	 		
+ 			console.log("tarkista: "+tarkista);
+ 			console.log(onOlemassa);
+ 		//	var klassi = document.getElementsByClassName("cur").id;
+ 			//console.log(klassi);
  			var maalattavat = ekatRivit(vikaNro);
+ 		//	maalattavat.addClass("cur");
+ 		//	for(var jee = 1; jee < maalattavat; jee++){
+ 			//	$(ekaNro).siblings[jee].addClass("cur");
+ 		//	}
+ //			console.log(maalattavat.className);
  			
 
  			$(".palsta15min").css("background-color", "");
+ 			if(onOlemassa === false){
  	 			$(ekaNro).css("background-color", "#ffffcc");
- 	 			$(ekaNro).nextUntil(vikaNro,"div").css("background-color", "#ffffcc");
+ 	 			$(ekaNro).nextUntil(vikaNro,"div").css("background-color", "#ffffcc");	
+ 			}
  	 			
-
- 		  console.log("Vapaat rivit: " +maalattavat);
- 		 }
+ 			}
+ 	//	  console.log("Vapaat rivit: " +maalattavat);
+ 		 
  		var tokaPeriodi = false;
  		var paivaCheck = $( this ).parent().get( 0 ).id;
 		if(paivaCheck.length == 4){
@@ -390,13 +422,19 @@ $(document).ready(function () {
 	 		}
  		var alkuCheck = eka.substring(eka.indexOf(",", 0)+1 , eka.indexOf(",", 0)+6);
  		var loppuCheck = vika.substring(vika.indexOf(",", 0)+1 , vika.indexOf(",", 0)+6);
- 
- 		console.log("alkucheck: "+alkuCheck);
- 		console.log("loppucheck: "+loppuCheck);
- 		console.log("paivacheck: "+paivaCheck);
+ 		for (var i = 1; i < document.getElementById("qurssit").childNodes.length; i++) {
+ 		var paska = document.getElementById("qurssit").childNodes[i];
+ 		$(paska).css("display", "");
+ 		}
+ 	//	console.log("alkucheck: "+alkuCheck);
+ 	//	console.log("loppucheck: "+loppuCheck);
+ 	//	console.log("paivacheck: "+paivaCheck);
  		for (var i = 1; i < document.getElementById("qurssit").childNodes.length; i++) {
  			var kysKurssi = document.getElementById("qurssit").childNodes[i];
  			$(kysKurssi).css("display" , "");
+ 			if(onOlemassa){
+ 				break;
+ 			}
  			var testitLapi = 0;
  			var tunnit12 = kysKurssi.className;
  		    delimiter = ' ',
@@ -443,39 +481,39 @@ $(document).ready(function () {
             		 var loppuTuntiSama = false;
             		 if(alkuTuntiCheck === alkuTunti){
             			 alkuTuntiSama = true;
-            			 console.log("alkutuntisama")
+       //     			 console.log("alkutuntisama")
             		 }
             		 
             		 if(loppuTuntiCheck === loppuTunti){
-            			 loppuTuntiSama = true;
-            			 console.log("lopputuntisama")
+          //  			 loppuTuntiSama = true;
+        //    			 console.log("lopputuntisama")
             		 }
             		 
             		 if(alkuTuntiSama && alkuMinCheck <= alkuMin){
             			testitLapi = testitLapi+1;
-            			console.log("testi läpinro: "+testitLapi)
-            			console.log("1")
+           // 			console.log("testi läpinro: "+testitLapi)
+         //   			console.log("1")
             		 }
             		 
             		 if(loppuTuntiSama && loppuMinCheck <= loppuMin){
             			 testitLapi = testitLapi+2;
-            			console.log("2")
+       //     			console.log("2")
             		 }
             		 if(testitLapi ==1){
             			 console.log("1 läpi")
             			 if(loppuTuntiCheck < loppuTunti){
-            				 testitLapi = testitLapi+20;
+       //     				 testitLapi = testitLapi+20;
              			 }
             		 }
             		 if(testitLapi ==2){
             			 console.log("2 läpi")
             			 if(alkuTuntiCheck > alkuTunti){
-            				 testitLapi = testitLapi+20;
+       //     				 testitLapi = testitLapi+20;
                 		 } 
             		 }
             		 if(testitLapi ==3){
             			 testitLapi = testitLapi+20;
-            			 console.log("3 läpi")
+     //       			 console.log("3 läpi")
             		 }
             		 if(testitLapi == 0){
             			 if(loppuTuntiCheck < loppuTunti && alkuTuntiCheck > alkuTunti){
@@ -490,12 +528,12 @@ $(document).ready(function () {
 
     		 }
              if(testitLapi > 20){
-    		 console.log(kysKurssi);
-    		 console.log("alku: " + oikeaAlku);
-    		 console.log("loppu: " + oikeaLoppu); 
+    	//	 console.log(kysKurssi);
+    		// console.log("alku: " + oikeaAlku);
+    		// console.log("loppu: " + oikeaLoppu); 
     		 }
  		}
- 	}
+ 	
  //	}
  });
     });
