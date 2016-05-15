@@ -95,6 +95,9 @@ function lisaaLapsoset(){
 	        // Etsitän lisätty table ja lisätään sille itse luotu attribuutti "data-click" (kertoo onko painiketta painettu, käytetän värien muuttamiseen)
 	        newTr.setAttribute("data-click", false);
 	        // Lisätän teksti painikkeen sisälle
+	        if(kurssiObj[i].Huone ==""){
+	        	kurssiObj[i].Huone = "--";
+	        }
 	        newTr.innerHTML = "<td class='nimi'>" + kurssiObj[i].Nimi + 
 	        "<td class='suoritustapa'>" + kurssiObj[i].Suoritustapa + 
 	        "</td><td class='op'>" + kurssiObj[i].Op + 

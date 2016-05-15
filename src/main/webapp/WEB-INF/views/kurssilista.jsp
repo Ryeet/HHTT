@@ -109,9 +109,13 @@
 </div>
 </div>
 
-<div id="scroll" data-role="main" class="ui-content">
-	<form>
+<div id="passs" data-role="main" class="ui-grid-a">
+	<form class=ui-block-a" style="display:inline-block;">
 		<input id="filterTable-input" data-type="search" placeholder="Hae mitä haluat...">
+	<a id="coursesButton" class="btn">Valitut kurssit tämän napin alla</a>
+	<div id="whee" style="display:none">
+		<div id="ww" ></div>
+	</div>
 	</form>
 	<table data-role="table" data-mode="columntoggle" class="qurssit ui-responsive ui-shadow table-stroke" id="myTable" data-filter="true" data-input="#filterTable-input" data-column-btn-text="Valitse mitä talulusta näytän">
 		<thead>
@@ -127,20 +131,15 @@
 				<th data-priority="6"><b>Huone</b></th>
 				<th><b>1. periodi</b></th>
 				<th><b>2. periodi</b></th>
-				<th data-priority="6"><b>Ryhmä</b></th>
+				<th data-priority="7"><b>Ryhmä</b></th>
 			</tr>
 		</thead>
 		<tbody id='qurssit'>
 		</tbody>
 	</table>
 </div>
-<div style="width:250px; margin:0 auto; padding:10px; text-align:center;">
-	<a id="coursesButton" class="btn">Valitut kurssit tämän napin alla</a>
-	<div id="whee" style="margin: 0 auto; width:150px; padding:10px; display:none">
-		<div id="ww" ></div>
-	</div>
-</div>
 <!-- KOODIT OMISSA FAILEISSA!!! -->
+
 <script>
 var kurssiObj = <c:out value="${jsonArray}" escapeXml="false"/>;   
 </script>

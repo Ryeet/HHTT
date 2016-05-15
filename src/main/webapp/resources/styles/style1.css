@@ -4,10 +4,11 @@ body {
 	background-color:#e6e6ec;
 }
 .lukkarit {
-	width:	86%;
+	width:	95%;
 	margin: auto;
 	padding: 0px;
 	position: relative;
+	margin-top:15px;
 }
 
 
@@ -34,13 +35,16 @@ body {
 }
 
 .qurssit {
+	display:block;
 	border-collapse: collapse;
 	background-color: #f4f5fc;
+	height:400px;
+	overflow-y: scroll;
+	overflow-x: scroll;
 }
 
-#scroll {
-	overflow-y: scroll;
-	width: 80%;
+#passs {
+	width: 95%;
 	margin: auto;
 	position: relative;
 	height: 350px;
@@ -70,7 +74,7 @@ thead{
 	width:	100%;
 	height:55px;
 	
-	margin-top: 15px;
+	margin-top: 0px;
 	padding: 0px;
 	box-sizing: border-box;
 	
