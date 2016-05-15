@@ -321,114 +321,116 @@ $(document).ready(function () {
  		//var paivaCheck = $( this ).parent().get( 0 ).id;
  		//console.log("1. "+$( this ).parent().get( 0 ).id); 
  		var kyseinen = $( this );
- 		 if($( this ).attr("data-check") == "false" ) {
- 	//	console.log("2. "+this.id)
- 	//	$(this).siblings(":last").css("background-color", "blue");
- 		var vikaCheck = $(this).nextAll();
- 		var ekaCheck = $(this).prevAll();
- 		for(var h=0;h<ekaCheck.length;h++){
- 			//ekaCheck[h-1].css("background-color", "black");
- 			var ekaCheckTausta = $(this).css("background-color", "black");
- 			if(ekaCheck[h].getAttribute("data-check") == "true") {
- 			   var eka = ekaCheck[h-1].id;
- 				//console.log("eka: " + eka);
- 			   break;
+ 		if($( this ).attr("data-check") == "false" ) {
+ 			//console.log("2. "+this.id)
+ 			var vikaCheck = $(this).nextAll();
+ 			var ekaCheck = $(this).prevAll();
+ 			var tarkista = this.className.substring(this.className.length - 3);
+ 			//console.log("tarkista eka: "+tarkista);
+ 		
+ 			for(var h=0;h<ekaCheck.length;h++){
+ 				var loytyyKurssi = false;
+ 				//console.log("tarkista ekaFor: "+tarkista);
+ 				var ekaCheckTausta = $(this).css("background-color", "black");
+ 					if(ekaCheck[h].getAttribute("data-check") == "true") {
+ 						var eka = ekaCheck[h-1].id;
+ 						//console.log("eka: " + eka);
+ 						loytyyKurssi == true;
+ 						break; 
+ 					}else{
+ 						if(h == ekaCheck.length-1) {
+ 							eka = ekaCheck[ekaCheck.length-1].id;
+							//console.log("eka: " + eka);
+ 						}
+ 					}
  			}
- 			else{
- 				if(h == ekaCheck.length-1) {
- 					eka = ekaCheck[ekaCheck.length-1].id;
- 			//	console.log("eka: " + eka);
+ 		
+ 			for(var c=0;c<vikaCheck.length;c++){
+ 				//console.log("tarkista tokaFor: "+tarkista);
+ 				if(vikaCheck[c].getAttribute("data-check") == "true") {
+ 					var vika = vikaCheck[c].id;
+ 					//console.log("vika: " + vika);
+ 					loytyyKurssi == true;
+ 					break;
+				}else{
+ 					if(c == vikaCheck.length-1) {
+ 						vika = vikaCheck[vikaCheck.length-1].id;
+ 						//console.log("vika: " + vika);
+ 					}
  				}
  			}
- 		}
- 		for(var c=0;c<vikaCheck.length;c++){
- 			if(vikaCheck[c].getAttribute("data-check") == "true") {
- 				var vika = vikaCheck[c].id;
- 			//   console.log("vika: " + vika);
- 			   break;
- 			}
- 			else{
- 				if(c == vikaCheck.length-1) {
- 					vika = vikaCheck[vikaCheck.length-1].id;
- 			//	console.log("vika: " + vika);
- 				}
- 			}
- 		}
 
- 		var vikaNro = document.getElementById(vika);
- 		var rivit = document.getElementById(vika);
-	 	var ekaNro = document.getElementById(eka);
- 		//	console.log("check: "+vika)
- 			lisaaVikaan = false;
- 			var onOlemassa = false;
- 			var tarkista = $(this).attr('class').split(' ')[2];
- 			if(tarkista == ""){
- 				onOlemassa = false;
- 			}
- 			if(tarkista =="cur"){
- 				onOlemassa = true;
- 				$(".palsta15min").removeClass("cur");
- 			}
- 	 			
- 			
- 			
-			}
+ 				var vikaNro = document.getElementById(vika);
+ 				var rivit = document.getElementById(vika);
+ 				var ekaNro = document.getElementById(eka);
+ 				//console.log("check: "+vika)
+ 				lisaaVikaan = false;
+ 				var onOlemassa = false;
+ 					if(tarkista !==""){
+ 						if(tarkista == "cur"){
+ 							onOlemassa = true;
+ 							$(".palsta15min").removeClass("cur");
+ 						}
+ 					}
+ 					if(tarkista !=="cur"){
+ 						$(".palsta15min").removeClass("cur");
+ 					}
+			
+ 			} //END: if($( this ).attr("data-check") == "false" )
  			function ekatRivit(rivit){
- 			    var v=0;
+ 				var v=0;
  			    while(rivit.previousSibling){
  			        rivit = rivit.previousSibling;
  			        if(rivit.nodeType === 1){
- 			        	if(onOlemassa == false){
- 			        	$(rivit).addClass("cur");
- 			        	$(vikaNro).addClass("cur");
- 			        	lisaaVikaan = true;
+ 			        	if(onOlemassa == false || loytyyKurssi && onOlemassa){
+ 			        		$(rivit).addClass("cur");
+ 			        		$(vikaNro).addClass("cur");
+ 			        		lisaaVikaan = true;
  			        	}
- 			        	if(rivit.getAttribute("data-check") == "true"){
- 	 			        	break;
- 	 			        	}
- 			            v++;
+ 			        if(rivit.getAttribute("data-check") == "true"){
+ 			        	break;
+ 			        }
+ 			        v++;
  			        }
  			    }
- 			    if(lisaaVikaan){
- 			    }
  			    return v;
- 			}
- 			console.log("tarkista: "+tarkista);
- 			console.log(onOlemassa);
- 		//	var klassi = document.getElementsByClassName("cur").id;
- 			//console.log(klassi);
+ 			} 
+ 			//console.log("tarkista vika: "+tarkista);
+ 			//console.log(onOlemassa);
  			var maalattavat = ekatRivit(vikaNro);
- 		//	maalattavat.addClass("cur");
- 		//	for(var jee = 1; jee < maalattavat; jee++){
- 			//	$(ekaNro).siblings[jee].addClass("cur");
- 		//	}
- //			console.log(maalattavat.className);
- 			
 
  			$(".palsta15min").css("background-color", "");
- 			if(onOlemassa === false){
+ 			if(onOlemassa === false || loytyyKurssi && onOlemassa){
  	 			$(ekaNro).css("background-color", "#ffffcc");
  	 			$(ekaNro).nextUntil(vikaNro,"div").css("background-color", "#ffffcc");	
  			}
  	 			
- 			}
- 	//	  console.log("Vapaat rivit: " +maalattavat);
- 		 
+ 			} //END: if ( $( this ).parent()) 
+ 		
+ 		//console.log("Vapaat rivit: " +maalattavat); 
  		var tokaPeriodi = false;
  		var paivaCheck = $( this ).parent().get( 0 ).id;
-		if(paivaCheck.length == 4){
-	 		tokaperiodi = true;
+ 		//console.log("Pituus:" + paivaCheck.length);
+ 		//console.log("Paiva:" + paivaCheck);
+		if(paivaCheck.length >3){
+	 		tokaPeriodi = true;
 	 		paivaCheck = paivaCheck.substring(0,3);
-	 		}
+	 	}
+		//console.log("Onko true: "+tokaPeriodi);
  		var alkuCheck = eka.substring(eka.indexOf(",", 0)+1 , eka.indexOf(",", 0)+6);
  		var loppuCheck = vika.substring(vika.indexOf(",", 0)+1 , vika.indexOf(",", 0)+6);
+ 		
  		for (var i = 1; i < document.getElementById("qurssit").childNodes.length; i++) {
- 		var paska = document.getElementById("qurssit").childNodes[i];
- 		$(paska).css("display", "");
+ 		var kaikkiPalstat = document.getElementById("qurssit").childNodes[i];
+ 		$(kaikkiPalstat).css("display", "");
  		}
- 	//	console.log("alkucheck: "+alkuCheck);
- 	//	console.log("loppucheck: "+loppuCheck);
- 	//	console.log("paivacheck: "+paivaCheck);
+ 		
+ 		//console.log("alkucheck: "+alkuCheck);
+ 		//console.log("loppucheck: "+loppuCheck);
+ 		//console.log("paivacheck: "+paivaCheck);
+ 		
+ 		var loytynytMaara = 0;
+ 		
  		for (var i = 1; i < document.getElementById("qurssit").childNodes.length; i++) {
  			var kysKurssi = document.getElementById("qurssit").childNodes[i];
  			$(kysKurssi).css("display" , "");
@@ -436,118 +438,109 @@ $(document).ready(function () {
  				break;
  			}
  			var testitLapi = 0;
+ 			
  			var tunnit12 = kysKurssi.className;
  		    delimiter = ' ',
  		    start = 1,
  		    tokens = tunnit12.split(delimiter).slice(start),
- 		    result = tokens.join(delimiter); // those.that
- 			//console.log("orig: "+kysKurssi.className);
+ 		    result = tokens.join(delimiter);
+ 			
+ 		    //console.log("orig: "+kysKurssi.className);
  			//console.log("result: "+result);
- 			 var ekaPer = result.substring(0,result.indexOf(" "));
-             var tokaPer = result.substring(result.indexOf(" ")+1, result.length);
-           //  console.log("ekaPer: "+ekaPer);
-            // console.log("tokaPer: "+tokaPer);
+ 			
+ 		    var ekaPer = result.substring(0,result.indexOf(" "));
+            var tokaPer = result.substring(result.indexOf(" ")+1, result.length);
+            
+            //console.log("ekaPer: "+ekaPer);
+            //console.log("tokaPer: "+tokaPer);
+            
             var kysPeriodi = ekaPer;
+            //console.log("2. periodi: "+tokaPeriodi);
             if(tokaPeriodi){
             	kysPeriodi = tokaPer;
             }
-             if(kysPeriodi !== "undefined"){
-            	
-            	 
-            	 if(kysPeriodi.includes(paivaCheck)){
-            		 if(tokaPeriodi == false){
-            			 if(ekaPer !== "undefined"){
-            		 var oikeaAlku = ekaPer.substring(ekaPer.indexOf(paivaCheck)+4,ekaPer.indexOf(paivaCheck)+9);
-            		 var oikeaLoppu = ekaPer.substring(ekaPer.indexOf(paivaCheck)+10,ekaPer.indexOf(paivaCheck)+15);
-            			 }
-            		 }
-            		 if(tokaPeriodi){
-            			 if(tokaPer !== "undefined"){
-                		 var oikeaAlku = tokaPer.substring(tokaPer.indexOf(paivaCheck)+4,tokaPer.indexOf(paivaCheck)+9);
-                		 var oikeaLoppu = tokaPer.substring(tokaPer.indexOf(paivaCheck)+10,tokaPer.indexOf(paivaCheck)+15);
-                		 }
-            		 }
-            		 var alkuTunti = alkuCheck.substring(0,2);
-            		 var alkuMin = alkuCheck.substring(3,5);
-            		 var loppuTunti = loppuCheck.substring(0,2);
-            		 var loppuMin = loppuCheck.substring(3,5);
-            		 var alkuTuntiCheck = oikeaAlku.substring(0,2);
-            		 var alkuMinCheck = oikeaAlku.substring(3,5);
-            		 var loppuTuntiCheck = oikeaLoppu.substring(0,2);
-            		 var loppuMinCheck = oikeaLoppu.substring(3,5);
-            	//	 console.log(alkuTunti);
-            		// console.log(alkuMin);
-            		 var alkuTuntiSama = false;
+            
+            if(kysPeriodi !== "undefined"){
+            	if(kysPeriodi.includes(paivaCheck)){
+            		if(kysPeriodi !== "undefined"){
+            			 var oikeaAlku = kysPeriodi.substring(kysPeriodi.indexOf(paivaCheck)+4,kysPeriodi.indexOf(paivaCheck)+9);
+            			 var oikeaLoppu = kysPeriodi.substring(kysPeriodi.indexOf(paivaCheck)+10,kysPeriodi.indexOf(paivaCheck)+15);
+           			 }
+ 
+           			 var alkuTunti = alkuCheck.substring(0,2);
+           			 var alkuMin = alkuCheck.substring(3,5);
+           			 var loppuTunti = loppuCheck.substring(0,2);
+           			 var loppuMin = loppuCheck.substring(3,5);
+           			 var alkuTuntiCheck = oikeaAlku.substring(0,2);
+           			 var alkuMinCheck = oikeaAlku.substring(3,5);
+           			 var loppuTuntiCheck = oikeaLoppu.substring(0,2);
+           			 var loppuMinCheck = oikeaLoppu.substring(3,5);
+           	
+           			 //console.log(alkuTunti);
+           			 //console.log(alkuMin);
+        
+           			 var alkuTuntiSama = false;
             		 var loppuTuntiSama = false;
+            	
             		 if(alkuTuntiCheck === alkuTunti){
-            			 alkuTuntiSama = true;
-       //     			 console.log("alkutuntisama")
-            		 }
+           				 alkuTuntiSama = true;
+           				 //console.log("alkutuntisama")
+           			 }
             		 
-            		 if(loppuTuntiCheck === loppuTunti){
-          //  			 loppuTuntiSama = true;
-        //    			 console.log("lopputuntisama")
-            		 }
+           			 if(loppuTuntiCheck === loppuTunti){
+           				 //loppuTuntiSama = true;
+           				 //console.log("lopputuntisama")
+           			 }
             		 
-            		 if(alkuTuntiSama && alkuMinCheck <= alkuMin){
-            			testitLapi = testitLapi+1;
-           // 			console.log("testi läpinro: "+testitLapi)
-         //   			console.log("1")
-            		 }
+           			 if(alkuTuntiSama && alkuMinCheck <= alkuMin){
+           				 testitLapi = testitLapi+1;
+           				 //console.log("testi läpinro: "+testitLapi)
+           				 //console.log("1")
+           			 }
             		 
-            		 if(loppuTuntiSama && loppuMinCheck <= loppuMin){
+           			 if(loppuTuntiSama && loppuMinCheck <= loppuMin){
             			 testitLapi = testitLapi+2;
-       //     			console.log("2")
-            		 }
-            		 if(testitLapi ==1){
-            			 console.log("1 läpi")
-            			 if(loppuTuntiCheck < loppuTunti){
-       //     				 testitLapi = testitLapi+20;
-             			 }
-            		 }
-            		 if(testitLapi ==2){
-            			 console.log("2 läpi")
-            			 if(alkuTuntiCheck > alkuTunti){
-       //     				 testitLapi = testitLapi+20;
-                		 } 
-            		 }
+            			 //console.log("2")
+           			 }
+            	
+           			 if(testitLapi ==1){
+           				 //console.log("1 läpi")
+           				 if(loppuTuntiCheck < loppuTunti){
+           					 testitLapi = testitLapi+20;
+           				 }
+           			 }
+            	
+           			 if(testitLapi ==2){
+           				 //console.log("2 läpi")
+           				 if(alkuTuntiCheck > alkuTunti){
+           					 testitLapi = testitLapi+20;
+           				 } 
+           			 }
+            		
             		 if(testitLapi ==3){
             			 testitLapi = testitLapi+20;
-     //       			 console.log("3 läpi")
-            		 }
-            		 if(testitLapi == 0){
-            			 if(loppuTuntiCheck < loppuTunti && alkuTuntiCheck > alkuTunti){
-            				 testitLapi = testitLapi+20;
-            			 }
-            		 }
+           				 //console.log("3 läpi")
+           			 }
+            	
+           			 if(testitLapi == 0){
+           				 if(loppuTuntiCheck < loppuTunti && alkuTuntiCheck > alkuTunti){
+           					 testitLapi = testitLapi+20;
+           				 }
+           			 }
             		 
-            	 }
-             }
-             if(testitLapi < 20){
-    			 $(kysKurssi).css("display" , "none");
-
+            	} //END: if(kysPeriodi.includes(paivaCheck))
+            } //END: if(kysPeriodi !== "undefined")
+            
+            if(testitLapi < 20 || kysPeriodi ==="undefined"){
+            	$(kysKurssi).css("display" , "none");
     		 }
-             if(testitLapi > 20){
-    	//	 console.log(kysKurssi);
-    		// console.log("alku: " + oikeaAlku);
-    		// console.log("loppu: " + oikeaLoppu); 
-    		 }
- 		}
- 	
- //	}
+            //console.log(i);
+            if(testitLapi > 20){
+            	console.log("Löytynyt: "+i);
+            	console.log(kysKurssi);
+            	loytynytMaara++;
+            }
+ 		} //END: for (var i = 1; i < document.getElementById("qurssit").childNodes.length; i++)
+ 		console.log(loytynytMaara);
+ 	});
  });
-    });
-	//console.log("testi: " + kysKurssi.className.substring(5, kysKurssi.className.indexOf(" ")));
-	
-	//	if(kysKurssi.className.substring(0, kysKurssi.className.indexOf(",," , 0)).includes(eka)){
-		//	console.log("löydetty: " + i + ". " + kysKurssi.className);
-			//console.log("kurssi-id: " + i + ". " + kysKurssi.id);
-	//		for(var i13 = 1;i13 < kysKurssi.className.length; i13++){
-		//		var merkki = " ";
-			//	var vali = 0;
-				//if(kysKurssi.className.substring(i13 , kysKurssi.length).includes(merkki)){
-					//i13 = kysKurssi.className.indexOf(merkki);
-				//	vali++;
-				//}
-			//}
-			//console.log("välien määrä: "+vali);
