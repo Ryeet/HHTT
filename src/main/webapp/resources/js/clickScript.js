@@ -294,9 +294,9 @@ $(document).ready(function () {
  			var kurss1b = texkt.substring(kurss1alng, texkt.length);
  			//Annetaan aktiiviselle elementille lisäattribuutteja, jotka näyttävät kuvauksen
  			if(hoverissa){
+ 				this.firstChild.setAttribute("title", kurss1a);
  				this.firstChild.setAttribute("data-toggle", "popover");
  				this.firstChild.setAttribute("data-placement", "auto right");
- 				this.firstChild.setAttribute("title", kurss1a);
  				this.firstChild.setAttribute("data-content", kurss1b);
  				this.firstChild.setAttribute("data-trigger", "hover");
  				//aktivoidaan bootstrapin kuvaus-plugin(popover)
@@ -364,7 +364,7 @@ $(document).ready(function () {
  				var rivit = document.getElementById(vika);
  				var ekaNro = document.getElementById(eka);
  				//console.log("check: "+vika)
- 				lisaaVikaan = false;
+ 				var lisaaVikaan = false;
  				var onOlemassa = false;
  					if(tarkista !==""){
  						if(tarkista == "cur"){
@@ -416,7 +416,7 @@ $(document).ready(function () {
 	 		tokaPeriodi = true;
 	 		paivaCheck = paivaCheck.substring(0,3);
 	 	}
-		//console.log("Onko true: "+tokaPeriodi);
+		//console.log("Onko 2.per true: "+tokaPeriodi);
  		var alkuCheck = eka.substring(eka.indexOf(",", 0)+1 , eka.indexOf(",", 0)+6);
  		var loppuCheck = vika.substring(vika.indexOf(",", 0)+1 , vika.indexOf(",", 0)+6);
  		
@@ -471,6 +471,7 @@ $(document).ready(function () {
            			 var alkuMin = alkuCheck.substring(3,5);
            			 var loppuTunti = loppuCheck.substring(0,2);
            			 var loppuMin = loppuCheck.substring(3,5);
+           			 
            			 var alkuTuntiCheck = oikeaAlku.substring(0,2);
            			 var alkuMinCheck = oikeaAlku.substring(3,5);
            			 var loppuTuntiCheck = oikeaLoppu.substring(0,2);
@@ -488,7 +489,7 @@ $(document).ready(function () {
            			 }
             		 
            			 if(loppuTuntiCheck === loppuTunti){
-           				 //loppuTuntiSama = true;
+           				 loppuTuntiSama = true;
            				 //console.log("lopputuntisama")
            			 }
             		 

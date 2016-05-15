@@ -12,7 +12,7 @@ public class JsonWriter {
 			boolean tyhjaPeriodi = false;
 			boolean eiAikaa = true;
 			boolean eiAikaa2 = true;
-
+			boolean intensiivi = false;
 			JSONObject obj = new JSONObject();
 			// if(course.getProgramme().matches("TN4PA")){
 			obj.put("Alkaa", course.getBegins().trim());
@@ -34,13 +34,20 @@ public class JsonWriter {
 				if (etsiPaiva.matches("Mon") || etsiPaiva.matches("Tue") || etsiPaiva.matches("Wed") || etsiPaiva.matches("Thu") || etsiPaiva.matches("Fri")) {
 					eiAikaa = false;
 				}
+				if(etsiPaiva.matches("vko")){
+					intensiivi = true;
+				}
 			}
 			if (course.getPeriod2().length() > 2) {
 				String etsiPaiva2 = course.getPeriod2().trim().substring(0, 3);
 				if (etsiPaiva2.matches("Mon") || etsiPaiva2.matches("Tue") || etsiPaiva2.matches("Wed") || etsiPaiva2.matches("Thu") || etsiPaiva2.matches("Fri")) {
 					eiAikaa2 = false;
 				}
+				if(etsiPaiva2.matches("vko")){
+					intensiivi = true;
+				}
 			}
+		
 			obj.put("1. periodi", course.getPeriod1().trim());
 			obj.put("2. periodi", course.getPeriod2().trim());
 			obj.put("Ohjelma", course.getProgramme().trim());
@@ -51,11 +58,12 @@ public class JsonWriter {
 			obj.put("Ilta", course.isEvening());
 
 			// System.out.println(obj.toString());
-			if (tyhjaPeriodi == false && eiAikaa == false || eiAikaa2 == false) {
+			if (intensiivi == false && tyhjaPeriodi == false && eiAikaa == false || eiAikaa2 == false) {
 				jsonArray.put(obj);
 			}
 			tyhjaPeriodi = false;
 			eiAikaa = false;
+			intensiivi = false;
 			// }
 		}
 		return jsonArray;
