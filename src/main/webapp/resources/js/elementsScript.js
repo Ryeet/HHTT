@@ -106,7 +106,7 @@ function lisaaLapsoset(){
 	        "</td><td class='toimipiste'>" + kurssiObj[i].Toimipiste + 
 	        "</td><td class='tunnus'>" + kurssiObj[i].Tunnus + 
 	        "</td><td class='opettaja'>" + kurssiObj[i].Opettaja +
-	        "</td><td class='huone'>" + kurssiObj[i].Huone +
+	      //  "</td><td class='huone'>" + kurssiObj[i].Huone +
 	        "</td><td class='per1'>" + kurssiObj[i]["1. periodi"] + 
 	        "</td><td class='per2'>" + kurssiObj[i]["2. periodi"] + "</td>" + 
 	        "<td class='ryhma'>" + kurssiObj[i].Ryhma +"</td>";

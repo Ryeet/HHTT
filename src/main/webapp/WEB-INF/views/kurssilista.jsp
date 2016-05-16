@@ -117,8 +117,8 @@ var printti = "/HHTT/resources/styles/printti.css";
 	</div>
 </div>
 </div>
-<a id="coursesButton" class="ui-btn ui-btn-inline ui-mini" style="position:absolute;left: 23%;top: 59%; text-align:vertical; z-index:99;">Näytä valitut kurssit</a>
-		<a id="printButton" class="ui-btn ui-btn-inline ui-mini" style="position:absolute;left: 37%;top: 59%; text-align:vertical; z-index:99;" >Tulosta kalenterit</a>
+<a id="coursesButton" class="ui-btn ui-btn-inline ui-mini" style="position:absolute;left: 23%;top: 58.5%; text-align:vertical; z-index:99;">Näytä valitut kurssit</a>
+		<a id="printButton" class="ui-btn ui-btn-inline ui-mini" style="position:absolute;left: 37%;top: 58.5%; text-align:vertical; z-index:99;" >Tulosta kalenterit</a>
 <div id="passs" data-role="main" class="ui-grid-a">
 <div class="u-block-a">
 	<form class=ui-block-a>
@@ -135,8 +135,8 @@ var printti = "/HHTT/resources/styles/printti.css";
 				<th data-priority="4"><b>Osaamisalueryhmä</b></th>
 				<th data-priority="5"><b>Toimipiste</b></th>
 				<th><b>Tunnus</b></th>
-				<th><b>Opettaja(t)</b></th>
-				<th data-priority="6"><b>Huone</b></th>
+				<th data-priority="5"><b>Opettaja(t)</b></th>
+			<!-- 	<th data-priority="6"><b>Huone</b></th> -->
 				<th><b>1. periodi</b></th>
 				<th><b>2. periodi</b></th>
 				<th data-priority="6"><b>Ryhmä</b></th>

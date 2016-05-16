@@ -36,16 +36,17 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 	position: relative;
 	float:left;
 	width: 49%;
-	height: 443px;
+	height: 433px;
 	background-color: #f4f5fc;
 	box-shadow:0px 17px 22px -20px rgba(87, 87, 87,1);
+	border-style: solid black 1px;
 	}
 
 #gotello2 {
 	position: relative;
 	float:left;
 	width: 49%;
-	height: 443px;
+	height: 433px;
 	background-color: #f4f5fc;
 	margin-bottom:30px;
 	margin-top: 10px;
@@ -60,7 +61,7 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 	background-color: #f4f5fc;
 	height:400px;
 	overflow-y: scroll;
-	overflow-x: scroll;
+	overflow-x:none;
 }
 
 #passs {
@@ -70,6 +71,7 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 	height: 350px;
 	background-color:#f4f5fc;
 	padding-left: 5px;
+	overflow-x:none;
 }
 
 .ylarivi {
@@ -92,8 +94,8 @@ thead{
 .otsikko {
 	float:	left;
 	width:	100%;
-	height:55px;
-	
+	height:35px;
+	text-align:vertical;
 	margin-top: 0px;
 	padding: 0px;
 	box-sizing: border-box;
@@ -101,10 +103,10 @@ thead{
 }
 
 h1	{
-	margin-top:10px;
+	margin-top:5px;
 	text-align:center;
 	font-family: 'Unna', serif;;
-	font-size: 35px;
+	font-size: 22px;
 	font-weight: 700;
 }
 
@@ -215,7 +217,7 @@ h1	{
 	margin:0px;
 	padding:0px;
 	width:16.65%;
-	border: solid 1px lightgrey;
+	border: solid 1px black;
 	text-align: center;
 }
 .paivat tr td:first-child {
@@ -223,6 +225,7 @@ h1	{
 }
 .paivat tr td:last-child {
 	border-right-color:#f4f5fc;
+	border-left-color:#f4f5fc;
 }
 .lukkariLisays{ /* Ma */
 	border: 1px solid black;
@@ -264,4 +267,21 @@ input[data-course-name]{
 {
 	background-color: red;
 	border: solid 1px red;
+}
+@media screen and (min-width: 113.750em) {
+   .my-custom-class th.ui-table-priority-6,
+   .my-custom-class td.ui-table-priority-6 {
+     display: table-cell;
+   }
+}
+/* Manually hidden */ 
+.my-custom-class th.ui-table-cell-hidden,
+.my-custom-class td.ui-table-cell-hidden {
+  display: none;
+}
+
+/* Manually shown */
+.my-custom-class th.ui-table-cell-visible,
+.my-custom-class td.ui-table-cell-visible {
+   display: table-cell;
 }
