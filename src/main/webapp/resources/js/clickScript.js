@@ -544,16 +544,21 @@ $(document).ready(function () {
  		} //END: for (var i = 1; i < document.getElementById("qurssit").childNodes.length; i++)
  		console.log(loytynytMaara);
  	});
+
  	$("#printButton").click(function () {
  		var printW = window.open("");
  		printW.document.writeln('<!DOCTYPE html>');
  		printW.document.writeln('<html><head><title></title>');
  		printW.document.writeln('<link rel="stylesheet" type="text/css" href='+'"'+printti+'"'+'>');
- 		printW.document.writeln('</head><body>');
+ 		printW.document.writeln('<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>');
+ 		//printW.document.writeln('<script>function tulos(){window.print();}</script>');
+ 		printW.document.writeln('<script src="/HHTT/resources/js/clickScript.js"></script>');
+ 		printW.document.writeln('</head><body id="tulostus">');
  		printW.document.writeln(document.getElementById("lukkarit").innerHTML);
+//		printW.document.writeln('<script type="text/javascript">'+tulosta()+'</script>');
  		printW.document.writeln('</body></html>');
- 		printW.print();
- 		printW.close();
- 		
+ 		$(printW).ready( function() { 
+		    printW.print();
+	});
  	}); 
 });
